@@ -1,3 +1,3 @@
 These python files are related to the paper MD-Hill-SPN. 
-•	DOI: https://doi.org/10.20944/preprints202604.2038.v1
-•	Link: https://www.preprints.org/manuscript/202604.2038/v1
+•	DOI: https://doi.org/10.3390/jcp6030104
+•	Link: https://www.mdpi.com/2624-800X/6/3/104
