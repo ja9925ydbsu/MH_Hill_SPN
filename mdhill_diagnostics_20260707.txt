@@ -1,0 +1,99 @@
+========================================================================
+PART A: CONTROLS
+========================================================================
+
+A1: os.urandom keystream, 20 x 1,000,000 bits (battery validity control)
+    seq   5: FAIL cusum_fwd
+    seq  15: FAIL longest_run
+  A1 urandom: 2 failing of 180 p-values (expectation 1.8)  [7 s]
+
+A2: 12-round MD-Hill-SPN on independent random plaintexts, 20 x 1,000,000 bits
+    seq   6: FAIL longest_run
+  A2 random-plaintext: 1 failing of 180 p-values (expectation 1.8)  [7 s]
+
+========================================================================
+PART B: STRIDE HAMMING-DISTANCE DISTINGUISHER
+========================================================================
+Mean HD( Enc(i), Enc(i+stride) ) over 20,000 counter pairs per (rounds, stride).
+Ideal mean 64.0, sd per pair sqrt(32); z = (mean - 64) / (sqrt(32 / n_pairs)).  |z| < 3 nominal.
+
+ rounds  stride   mean HD        z
+------------------------------------
+      2       1    63.985    -0.37
+      2       2    63.940    -1.50
+      2      16    63.981    -0.47
+      2     256    64.028     0.69
+      2    4096    63.981    -0.48
+------------------------------------
+      4       1    63.948    -1.29
+      4       2    63.967    -0.82
+      4      16    63.995    -0.13
+      4     256    63.942    -1.44
+      4    4096    64.023     0.58
+------------------------------------
+      6       1    63.952    -1.20
+      6       2    64.024     0.60
+      6      16    64.049     1.23
+      6     256    64.047     1.17
+      6    4096    64.038     0.96
+------------------------------------
+      8       1    63.976    -0.61
+      8       2    64.017     0.43
+      8      16    63.977    -0.58
+      8     256    64.091     2.28
+      8    4096    63.992    -0.21
+------------------------------------
+     10       1    64.056     1.40
+     10       2    63.961    -0.96
+     10      16    64.092     2.30
+     10     256    64.027     0.68
+     10    4096    64.021     0.52
+------------------------------------
+     12       1    63.934    -1.64
+     12       2    63.955    -1.14
+     12      16    63.941    -1.48
+     12     256    64.019     0.47
+     12    4096    63.993    -0.17
+------------------------------------
+
+========================================================================
+PART C: NIST ROUNDS SWEEP (counter-mode keystream)
+========================================================================
+20 sequences x 1,000,000 bits per round count; nine p-values per sequence (180 tests per configuration); alpha = 0.01.
+
+--- rounds = 2 ---
+    seq   6: FAIL cusum_fwd, cusum_bwd
+  rounds=2: 2 failing of 180 p-values (expectation 1.8)  [7 s]
+
+--- rounds = 4 ---
+    seq  19: FAIL cusum_fwd
+  rounds=4: 1 failing of 180 p-values (expectation 1.8)  [7 s]
+
+--- rounds = 6 ---
+    seq  20: FAIL frequency, cusum_fwd, cusum_bwd, serial_1, approx_entropy
+  rounds=6: 5 failing of 180 p-values (expectation 1.8)  [7 s]
+
+--- rounds = 8 ---
+    seq  15: FAIL runs, serial_1, serial_2, approx_entropy
+  rounds=8: 4 failing of 180 p-values (expectation 1.8)  [7 s]
+
+--- rounds = 10 ---
+    seq   2: FAIL runs, serial_1, serial_2, approx_entropy
+  rounds=10: 4 failing of 180 p-values (expectation 1.8)  [7 s]
+
+--- rounds = 12 ---
+    seq  14: FAIL block_frequency
+    seq  17: FAIL block_frequency
+    seq  20: FAIL block_frequency
+  rounds=12: 3 failing of 180 p-values (expectation 1.8)  [8 s]
+
+ROUNDS SWEEP SUMMARY
+ rounds  failing    of
+      2        2   180
+      4        1   180
+      6        5   180
+      8        4   180
+     10        4   180
+     12        3   180
+
+Diagnostics complete in 62 s.
