@@ -1,0 +1,56 @@
+========================================================================
+MD-Hill-SPN 300-SEQUENCE NIST SP 800-22 CORE-BATTERY CONFIRMATION
+(Revision 3, Cauchy MDS, 12 rounds)
+========================================================================
+Timestamp        : 20260707_094508
+Sequences        : 300 x 1,000,000 bits (38 MB keystream)
+Battery          : 7 tests / 9 p-values (nist_core_battery, validated at import)
+alpha            : 0.01
+Expected failures: 27 of 2700
+3-sigma pass-proportion cutoff (n=300): 0.9728
+Key              : deterministic confirmation key (SHA-256 stub, reference password/salt) - reproduces bit-for-bit
+Keystream        : counter mode, 128-bit big-endian counters from 0
+Log file         : mdhill_nist_confirm_300seq_r12_20260707_094508.txt
+
+  seq  14: FAIL longest_run  ({'longest_run': 0.00611})
+  seq  17: FAIL approx_entropy  ({'approx_entropy': 0.00252})
+  seq  21: FAIL cusum_fwd, serial_1, approx_entropy  ({'cusum_fwd': 0.00952, 'serial_1': 0.00866, 'approx_entropy': 0.00521})
+  -- 25/300 sequences · failing so far 5 · 10 s elapsed --
+  -- 50/300 sequences · failing so far 5 · 21 s elapsed --
+  -- 75/300 sequences · failing so far 5 · 30 s elapsed --
+  -- 100/300 sequences · failing so far 5 · 41 s elapsed --
+  seq 121: FAIL approx_entropy  ({'approx_entropy': 0.00942})
+  seq 123: FAIL serial_1  ({'serial_1': 0.0099})
+  -- 125/300 sequences · failing so far 7 · 57 s elapsed --
+  -- 150/300 sequences · failing so far 7 · 78 s elapsed --
+  seq 164: FAIL runs, serial_2  ({'runs': 0.00835, 'serial_2': 0.00829})
+  -- 175/300 sequences · failing so far 9 · 99 s elapsed --
+  -- 200/300 sequences · failing so far 9 · 120 s elapsed --
+  seq 213: FAIL block_frequency  ({'block_frequency': 0.00119})
+  -- 225/300 sequences · failing so far 10 · 141 s elapsed --
+  seq 236: FAIL block_frequency  ({'block_frequency': 0.00831})
+  -- 250/300 sequences · failing so far 11 · 162 s elapsed --
+  seq 264: FAIL block_frequency  ({'block_frequency': 0.00465})
+  -- 275/300 sequences · failing so far 12 · 183 s elapsed --
+  seq 276: FAIL cusum_fwd  ({'cusum_fwd': 0.00858})
+  -- 300/300 sequences · failing so far 13 · 204 s elapsed --
+
+========================================================================
+CONFIRMATION SUMMARY
+========================================================================
+test               fails   pass prop  3-sigma cutoff   verdict
+--------------------------------------------------------------
+frequency              0      1.0000          0.9728        ok
+block_frequency        3      0.9900          0.9728        ok
+runs                   1      0.9967          0.9728        ok
+longest_run            1      0.9967          0.9728        ok
+cusum_fwd              2      0.9933          0.9728        ok
+cusum_bwd              0      1.0000          0.9728        ok
+serial_1               2      0.9933          0.9728        ok
+serial_2               1      0.9967          0.9728        ok
+approx_entropy         3      0.9900          0.9728        ok
+--------------------------------------------------------------
+Total failing tests : 13 of 2700 (expectation 27)
+Runs family         : 299/300 = 0.997
+All per-test proportions inside 3-sigma region: YES
+Elapsed             : 204 s

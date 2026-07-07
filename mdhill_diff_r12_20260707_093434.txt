@@ -1,0 +1,27 @@
+========================================================================
+MD-Hill-SPN DIFFERENTIAL PROBE  (Revision 3, Cauchy MDS)
+========================================================================
+Timestamp : 20260707_093434
+Rounds    : 12
+Samples   : 50000 pairs per input difference
+Resolution: 1/N = 2.00e-05
+Key       : deterministic SHA-256 stub key (reference test-vector password/salt)
+Seed      : 20260707
+Log file  : mdhill_diff_r12_20260707_093434.txt
+
+input difference                   distinct dC  max mult   max p_hat
+------------------------------------------------------------------------
+bit   0        (byte  0, 0x80)           50000         1    2.00e-05
+bit  63        (byte  7, 0x01)           50000         1    2.00e-05
+bit 124        (byte 15, 0x08)           50000         1    2.00e-05
+byte  0 = 0x01                           50000         1    2.00e-05
+byte  7 = 0xFF                           50000         1    2.00e-05
+byte 15 = 0x01                           50000         1    2.00e-05
+bytes 0,15 = 0x01                        50000         1    2.00e-05
+bytes 3,7,11 = 0x80                      50000         1    2.00e-05
+bytes 0,4,8,12 = 0x01 (col)              50000         1    2.00e-05
+------------------------------------------------------------------------
+Worst-case multiplicity over all deltas : 1
+Sampled max differential probability    : 2.00e-05
+(N distinct out of N pairs = no repeated output difference at the 1/N resolution limit.)
+Elapsed: 16.0 s

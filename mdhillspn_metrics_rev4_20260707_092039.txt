@@ -1,0 +1,800 @@
+========================================================================
+MD-Hill-SPN  -  BYTE/BIT LEVEL METRIC ANALYSIS  (REVISION 4)
+Based on: Coggins (2024), MD-Hill-SPN, Variation 2 (4-8-16 dimension)
+Revision 4: vectorized core (~170x), conformance-anchored, deterministic by default
+========================================================================
+Timestamp         : 20260707_092039
+Mode              : DETERMINISTIC (reference salt, seed=12345)
+Salt              : 0102030405060708090a0b0c0d0e0f10
+Linear bias log   : mdhillspn_linear_bias_log_20260707_092039.csv
+Block size        : 128 bits (16 bytes)
+Rounds            : 12
+GF(2^8) polynomial: x^8 + x^4 + x^3 + x + 1  (0x11B)
+Matrix groups     : 4x(4x4) | 2x(8x8) | 1x(16x16) - Cauchy MDS
+
+========================================================================
+STEP 0: BRANCH NUMBER VERIFICATION  (GF(2^8), EXACT via weight-1)
+  Cauchy construction guarantees MDS (B = n + 1) at every tier.
+  hw counts nonzero bytes. Compare AES MixColumns B = 5 (MDS 4x4).
+========================================================================
+
+4x4 matrices (4 matrices, group size = 4 bytes)  - MDS bound B = 5:
+  M4[0]: B=5  [MDS]
+  M4[1]: B=5  [MDS]
+  M4[2]: B=5  [MDS]
+  M4[3]: B=5  [MDS]
+
+8x8 matrices (2 matrices, group size = 8 bytes)  - MDS bound B = 9:
+  M8[0]: B=9  [MDS]
+  M8[1]: B=9  [MDS]
+
+16x16 matrix (1 matrix, full block = 16 bytes)  - MDS bound B = 17:
+  M16[0]: B=17  [MDS]
+
+========================================================================
+STEP 1: AVALANCHE
+========================================================================
+PLAINTEXT avalanche, rounds=1:
+  trials = 60
+  min    = 55
+  max    = 74
+  mean   = 63.72
+  stdev  = 5.29
+
+PLAINTEXT avalanche, rounds=2:
+  trials = 60
+  min    = 51
+  max    = 76
+  mean   = 63.07
+  stdev  = 5.08
+
+PLAINTEXT avalanche, rounds=4:
+  trials = 60
+  min    = 48
+  max    = 80
+  mean   = 63.83
+  stdev  = 6.40
+
+PLAINTEXT avalanche, rounds=5:
+  trials = 60
+  min    = 56
+  max    = 73
+  mean   = 63.90
+  stdev  = 4.09
+
+PLAINTEXT avalanche, rounds=8:
+  trials = 60
+  min    = 52
+  max    = 77
+  mean   = 63.68
+  stdev  = 5.55
+
+PLAINTEXT avalanche, rounds=12:
+  trials = 60
+  min    = 52
+  max    = 85
+  mean   = 64.50
+  stdev  = 5.75
+
+KEY avalanche, rounds=1:
+  trials = 30
+  min    = 49
+  max    = 78
+  mean   = 62.83
+  stdev  = 6.74
+
+KEY avalanche, rounds=2:
+  trials = 30
+  min    = 52
+  max    = 74
+  mean   = 63.00
+  stdev  = 5.37
+
+KEY avalanche, rounds=4:
+  trials = 30
+  min    = 54
+  max    = 75
+  mean   = 65.20
+  stdev  = 5.32
+
+KEY avalanche, rounds=5:
+  trials = 30
+  min    = 52
+  max    = 74
+  mean   = 63.00
+  stdev  = 5.98
+
+KEY avalanche, rounds=8:
+  trials = 30
+  min    = 53
+  max    = 79
+  mean   = 62.37
+  stdev  = 5.60
+
+KEY avalanche, rounds=12:
+  trials = 30
+  min    = 48
+  max    = 75
+  mean   = 63.43
+  stdev  = 6.42
+
+========================================================================
+STEP 2: DIFFERENTIAL TESTS
+========================================================================
+[A] rounds = 4
+  progress: 50000/50000
+Rounds     : 4
+Samples    : 50000
+Input diff : 80000000000000000000000000000000
+Unique dC  : 50000
+
+Top 10 most frequent output differences:
+   1. freq=   1, prob=0.000020, dC=1d209d91f8537297db3434c0027a6808
+   2. freq=   1, prob=0.000020, dC=6d7b93ab8331b74db60d189c5ab0c20f
+   3. freq=   1, prob=0.000020, dC=c5562b386b39f12fcb1d75ef47619fc2
+   4. freq=   1, prob=0.000020, dC=3af8d252e53ff7daede0f62993cf4756
+   5. freq=   1, prob=0.000020, dC=8bf65ea8186fb351ac73fc518662036b
+   6. freq=   1, prob=0.000020, dC=92a1a1701956379a288d28bab3bd9b5e
+   7. freq=   1, prob=0.000020, dC=1b26ef696bd21b934c04874f10d1fc43
+   8. freq=   1, prob=0.000020, dC=1d4a8f2e7cc54048f719dd44e03fb705
+   9. freq=   1, prob=0.000020, dC=4f20bd8c6a3ce30d946445ec6f0101c5
+  10. freq=   1, prob=0.000020, dC=531e47efa1e98e1cac078f31eb7304a4
+
+Sampled maximum observed differential probability = 0.000020
+Sampling resolution floor = 1/50000 = 0.000020
+
+[B] rounds = 8
+  progress: 50000/50000
+Rounds     : 8
+Samples    : 50000
+Input diff : 80000000000000000000000000000000
+Unique dC  : 50000
+
+Top 10 most frequent output differences:
+   1. freq=   1, prob=0.000020, dC=674a6f860e1085257095121731e3a24c
+   2. freq=   1, prob=0.000020, dC=4c17610e877b1a66e237ffb199fe2b38
+   3. freq=   1, prob=0.000020, dC=a82d9b127f854eb92b9e1f885eafd527
+   4. freq=   1, prob=0.000020, dC=68818e8c26fe93f2483a2553580eb7fe
+   5. freq=   1, prob=0.000020, dC=7afd1f654467be28399bf299bce7a978
+   6. freq=   1, prob=0.000020, dC=ac8b876518bee108a3e55978ce8f6716
+   7. freq=   1, prob=0.000020, dC=397578695f4c0712900a1d15799986c5
+   8. freq=   1, prob=0.000020, dC=b3e377adb3afcbae30a0acab70f2186e
+   9. freq=   1, prob=0.000020, dC=39b5c8a35ef6a0558c57831eb46b46ba
+  10. freq=   1, prob=0.000020, dC=106a24a50fe20458c6ce90a9a5c4f07e
+
+Sampled maximum observed differential probability = 0.000020
+Sampling resolution floor = 1/50000 = 0.000020
+
+[C] rounds = 12
+  progress: 50000/50000
+Rounds     : 12
+Samples    : 50000
+Input diff : 80000000000000000000000000000000
+Unique dC  : 50000
+
+Top 10 most frequent output differences:
+   1. freq=   1, prob=0.000020, dC=9628cd6dac1615d8ac76788e2a9b6484
+   2. freq=   1, prob=0.000020, dC=d2af9eaa81fdb48488aa42a656a98ace
+   3. freq=   1, prob=0.000020, dC=56e39630026eb3717452e479a429a03c
+   4. freq=   1, prob=0.000020, dC=89d7b8bbf776b537ebe39763eb662d9b
+   5. freq=   1, prob=0.000020, dC=b48084d179b1d519d16ac9adc998092c
+   6. freq=   1, prob=0.000020, dC=59e6007925d2e3fda3419b710b66c1dd
+   7. freq=   1, prob=0.000020, dC=a97870930f748eda07e3bcf35f8b1b5c
+   8. freq=   1, prob=0.000020, dC=80a791b8a0d8ed21a1904127b09a7776
+   9. freq=   1, prob=0.000020, dC=2a9c26049141b14104f7dea4327116cf
+  10. freq=   1, prob=0.000020, dC=de43711e410283baa07e36c5a18732b5
+
+Sampled maximum observed differential probability = 0.000020
+Sampling resolution floor = 1/50000 = 0.000020
+
+[D] rounds = 12, one active byte
+  progress: 50000/50000
+Rounds     : 12
+Samples    : 50000
+Input diff : 01000000000000000000000000000000
+Unique dC  : 50000
+
+Top 10 most frequent output differences:
+   1. freq=   1, prob=0.000020, dC=2d57deb433ab28fa316286f8e257d526
+   2. freq=   1, prob=0.000020, dC=fd2367418691e17ada64652ff40d10b0
+   3. freq=   1, prob=0.000020, dC=3abb1b648d9bbe67a10e244aa2434710
+   4. freq=   1, prob=0.000020, dC=dfb71728b43bbf861713d29596aa0858
+   5. freq=   1, prob=0.000020, dC=4f4fdfb8a1059bbd4778048755fdb3f2
+   6. freq=   1, prob=0.000020, dC=bfcaf172111ccfb88cba1b52163758ea
+   7. freq=   1, prob=0.000020, dC=4f287ccb29994122fce0314eba9b1ad9
+   8. freq=   1, prob=0.000020, dC=104945826b097c49612140322a289688
+   9. freq=   1, prob=0.000020, dC=26da17c80faf63b806b4acc58f71c868
+  10. freq=   1, prob=0.000020, dC=a3a509349663de168253176a4319305b
+
+Sampled maximum observed differential probability = 0.000020
+Sampling resolution floor = 1/50000 = 0.000020
+
+========================================================================
+STEP 3: LINEAR-BIAS PROBE
+========================================================================
+========================================================================
+LINEAR-BIAS PROBE
+========================================================================
+Rounds=12, samples=50000, mask pairs tested=500
+Detection threshold = 1/sqrt(50000) = 0.00447  (~ 2 SE)
+Null exceedance rate ~ 4.55%  (Pr(|Z| > 2) under normal approx.)
+Log file: mdhillspn_linear_bias_log_20260707_092039.csv  (written after every trial)
+
+trial   1: prob=0.501520, abs_bias=0.001520
+trial   2: prob=0.502400, abs_bias=0.002400
+trial   3: prob=0.500880, abs_bias=0.000880
+trial   4: prob=0.502200, abs_bias=0.002200
+trial   5: prob=0.500600, abs_bias=0.000600
+trial   6: prob=0.499720, abs_bias=0.000280
+trial   7: prob=0.499120, abs_bias=0.000880
+trial   8: prob=0.501760, abs_bias=0.001760
+trial   9: prob=0.498780, abs_bias=0.001220
+trial  10: prob=0.498760, abs_bias=0.001240
+trial  11: prob=0.501500, abs_bias=0.001500
+trial  12: prob=0.502140, abs_bias=0.002140
+trial  13: prob=0.501200, abs_bias=0.001200
+trial  14: prob=0.501820, abs_bias=0.001820
+trial  15: prob=0.503400, abs_bias=0.003400
+trial  16: prob=0.494780, abs_bias=0.005220  *** EXCEEDS THRESHOLD ***
+trial  17: prob=0.503580, abs_bias=0.003580
+trial  18: prob=0.496580, abs_bias=0.003420
+trial  19: prob=0.502660, abs_bias=0.002660
+trial  20: prob=0.499300, abs_bias=0.000700
+trial  21: prob=0.498420, abs_bias=0.001580
+trial  22: prob=0.499920, abs_bias=0.000080
+trial  23: prob=0.499240, abs_bias=0.000760
+trial  24: prob=0.501700, abs_bias=0.001700
+trial  25: prob=0.502920, abs_bias=0.002920
+trial  26: prob=0.500140, abs_bias=0.000140
+trial  27: prob=0.500580, abs_bias=0.000580
+trial  28: prob=0.499420, abs_bias=0.000580
+trial  29: prob=0.498300, abs_bias=0.001700
+trial  30: prob=0.500680, abs_bias=0.000680
+trial  31: prob=0.503840, abs_bias=0.003840
+trial  32: prob=0.497800, abs_bias=0.002200
+trial  33: prob=0.498400, abs_bias=0.001600
+trial  34: prob=0.498480, abs_bias=0.001520
+trial  35: prob=0.501500, abs_bias=0.001500
+trial  36: prob=0.497720, abs_bias=0.002280
+trial  37: prob=0.500800, abs_bias=0.000800
+trial  38: prob=0.500400, abs_bias=0.000400
+trial  39: prob=0.498260, abs_bias=0.001740
+trial  40: prob=0.503780, abs_bias=0.003780
+trial  41: prob=0.500720, abs_bias=0.000720
+trial  42: prob=0.501940, abs_bias=0.001940
+trial  43: prob=0.499860, abs_bias=0.000140
+trial  44: prob=0.500840, abs_bias=0.000840
+trial  45: prob=0.501100, abs_bias=0.001100
+trial  46: prob=0.501120, abs_bias=0.001120
+trial  47: prob=0.504080, abs_bias=0.004080
+trial  48: prob=0.500440, abs_bias=0.000440
+trial  49: prob=0.498880, abs_bias=0.001120
+trial  50: prob=0.502040, abs_bias=0.002040
+  -- completed 50/500 trials  ·  exceedance so far: 1/50 = 2.0%  ·  max |bias| so far: 0.005220 --
+trial  51: prob=0.504120, abs_bias=0.004120
+trial  52: prob=0.501600, abs_bias=0.001600
+trial  53: prob=0.500920, abs_bias=0.000920
+trial  54: prob=0.498460, abs_bias=0.001540
+trial  55: prob=0.501120, abs_bias=0.001120
+trial  56: prob=0.498780, abs_bias=0.001220
+trial  57: prob=0.497600, abs_bias=0.002400
+trial  58: prob=0.500140, abs_bias=0.000140
+trial  59: prob=0.501840, abs_bias=0.001840
+trial  60: prob=0.500080, abs_bias=0.000080
+trial  61: prob=0.500780, abs_bias=0.000780
+trial  62: prob=0.497580, abs_bias=0.002420
+trial  63: prob=0.499120, abs_bias=0.000880
+trial  64: prob=0.501960, abs_bias=0.001960
+trial  65: prob=0.498260, abs_bias=0.001740
+trial  66: prob=0.503680, abs_bias=0.003680
+trial  67: prob=0.498180, abs_bias=0.001820
+trial  68: prob=0.500860, abs_bias=0.000860
+trial  69: prob=0.499500, abs_bias=0.000500
+trial  70: prob=0.503020, abs_bias=0.003020
+trial  71: prob=0.498560, abs_bias=0.001440
+trial  72: prob=0.497280, abs_bias=0.002720
+trial  73: prob=0.502780, abs_bias=0.002780
+trial  74: prob=0.499920, abs_bias=0.000080
+trial  75: prob=0.497880, abs_bias=0.002120
+trial  76: prob=0.503340, abs_bias=0.003340
+trial  77: prob=0.502860, abs_bias=0.002860
+trial  78: prob=0.501660, abs_bias=0.001660
+trial  79: prob=0.498680, abs_bias=0.001320
+trial  80: prob=0.501940, abs_bias=0.001940
+trial  81: prob=0.498940, abs_bias=0.001060
+trial  82: prob=0.499340, abs_bias=0.000660
+trial  83: prob=0.505820, abs_bias=0.005820  *** EXCEEDS THRESHOLD ***
+trial  84: prob=0.501480, abs_bias=0.001480
+trial  85: prob=0.498700, abs_bias=0.001300
+trial  86: prob=0.498420, abs_bias=0.001580
+trial  87: prob=0.497300, abs_bias=0.002700
+trial  88: prob=0.499260, abs_bias=0.000740
+trial  89: prob=0.496900, abs_bias=0.003100
+trial  90: prob=0.498760, abs_bias=0.001240
+trial  91: prob=0.503940, abs_bias=0.003940
+trial  92: prob=0.498840, abs_bias=0.001160
+trial  93: prob=0.499480, abs_bias=0.000520
+trial  94: prob=0.499480, abs_bias=0.000520
+trial  95: prob=0.499740, abs_bias=0.000260
+trial  96: prob=0.496420, abs_bias=0.003580
+trial  97: prob=0.496760, abs_bias=0.003240
+trial  98: prob=0.496120, abs_bias=0.003880
+trial  99: prob=0.500220, abs_bias=0.000220
+trial 100: prob=0.499760, abs_bias=0.000240
+  -- completed 100/500 trials  ·  exceedance so far: 2/100 = 2.0%  ·  max |bias| so far: 0.005820 --
+trial 101: prob=0.501180, abs_bias=0.001180
+trial 102: prob=0.500380, abs_bias=0.000380
+trial 103: prob=0.497400, abs_bias=0.002600
+trial 104: prob=0.496640, abs_bias=0.003360
+trial 105: prob=0.502160, abs_bias=0.002160
+trial 106: prob=0.498800, abs_bias=0.001200
+trial 107: prob=0.500740, abs_bias=0.000740
+trial 108: prob=0.502180, abs_bias=0.002180
+trial 109: prob=0.502460, abs_bias=0.002460
+trial 110: prob=0.504000, abs_bias=0.004000
+trial 111: prob=0.499120, abs_bias=0.000880
+trial 112: prob=0.500320, abs_bias=0.000320
+trial 113: prob=0.500080, abs_bias=0.000080
+trial 114: prob=0.502960, abs_bias=0.002960
+trial 115: prob=0.496520, abs_bias=0.003480
+trial 116: prob=0.497480, abs_bias=0.002520
+trial 117: prob=0.499080, abs_bias=0.000920
+trial 118: prob=0.497700, abs_bias=0.002300
+trial 119: prob=0.504440, abs_bias=0.004440
+trial 120: prob=0.496320, abs_bias=0.003680
+trial 121: prob=0.496460, abs_bias=0.003540
+trial 122: prob=0.500460, abs_bias=0.000460
+trial 123: prob=0.498900, abs_bias=0.001100
+trial 124: prob=0.504100, abs_bias=0.004100
+trial 125: prob=0.501880, abs_bias=0.001880
+trial 126: prob=0.499300, abs_bias=0.000700
+trial 127: prob=0.499680, abs_bias=0.000320
+trial 128: prob=0.502800, abs_bias=0.002800
+trial 129: prob=0.498400, abs_bias=0.001600
+trial 130: prob=0.495120, abs_bias=0.004880  *** EXCEEDS THRESHOLD ***
+trial 131: prob=0.497680, abs_bias=0.002320
+trial 132: prob=0.501160, abs_bias=0.001160
+trial 133: prob=0.503740, abs_bias=0.003740
+trial 134: prob=0.501140, abs_bias=0.001140
+trial 135: prob=0.501480, abs_bias=0.001480
+trial 136: prob=0.503800, abs_bias=0.003800
+trial 137: prob=0.498660, abs_bias=0.001340
+trial 138: prob=0.503580, abs_bias=0.003580
+trial 139: prob=0.500660, abs_bias=0.000660
+trial 140: prob=0.498900, abs_bias=0.001100
+trial 141: prob=0.499620, abs_bias=0.000380
+trial 142: prob=0.500560, abs_bias=0.000560
+trial 143: prob=0.495420, abs_bias=0.004580  *** EXCEEDS THRESHOLD ***
+trial 144: prob=0.500240, abs_bias=0.000240
+trial 145: prob=0.503380, abs_bias=0.003380
+trial 146: prob=0.499580, abs_bias=0.000420
+trial 147: prob=0.501300, abs_bias=0.001300
+trial 148: prob=0.501620, abs_bias=0.001620
+trial 149: prob=0.498640, abs_bias=0.001360
+trial 150: prob=0.497260, abs_bias=0.002740
+  -- completed 150/500 trials  ·  exceedance so far: 4/150 = 2.7%  ·  max |bias| so far: 0.005820 --
+trial 151: prob=0.500680, abs_bias=0.000680
+trial 152: prob=0.499720, abs_bias=0.000280
+trial 153: prob=0.501420, abs_bias=0.001420
+trial 154: prob=0.500620, abs_bias=0.000620
+trial 155: prob=0.502000, abs_bias=0.002000
+trial 156: prob=0.498640, abs_bias=0.001360
+trial 157: prob=0.496540, abs_bias=0.003460
+trial 158: prob=0.499040, abs_bias=0.000960
+trial 159: prob=0.502460, abs_bias=0.002460
+trial 160: prob=0.496940, abs_bias=0.003060
+trial 161: prob=0.499360, abs_bias=0.000640
+trial 162: prob=0.500680, abs_bias=0.000680
+trial 163: prob=0.501940, abs_bias=0.001940
+trial 164: prob=0.501140, abs_bias=0.001140
+trial 165: prob=0.502020, abs_bias=0.002020
+trial 166: prob=0.501520, abs_bias=0.001520
+trial 167: prob=0.496920, abs_bias=0.003080
+trial 168: prob=0.500800, abs_bias=0.000800
+trial 169: prob=0.499940, abs_bias=0.000060
+trial 170: prob=0.500080, abs_bias=0.000080
+trial 171: prob=0.502260, abs_bias=0.002260
+trial 172: prob=0.503340, abs_bias=0.003340
+trial 173: prob=0.501340, abs_bias=0.001340
+trial 174: prob=0.502060, abs_bias=0.002060
+trial 175: prob=0.503180, abs_bias=0.003180
+trial 176: prob=0.502540, abs_bias=0.002540
+trial 177: prob=0.500860, abs_bias=0.000860
+trial 178: prob=0.499840, abs_bias=0.000160
+trial 179: prob=0.494820, abs_bias=0.005180  *** EXCEEDS THRESHOLD ***
+trial 180: prob=0.499240, abs_bias=0.000760
+trial 181: prob=0.500500, abs_bias=0.000500
+trial 182: prob=0.497360, abs_bias=0.002640
+trial 183: prob=0.497340, abs_bias=0.002660
+trial 184: prob=0.496380, abs_bias=0.003620
+trial 185: prob=0.499540, abs_bias=0.000460
+trial 186: prob=0.499680, abs_bias=0.000320
+trial 187: prob=0.499860, abs_bias=0.000140
+trial 188: prob=0.499100, abs_bias=0.000900
+trial 189: prob=0.499100, abs_bias=0.000900
+trial 190: prob=0.500560, abs_bias=0.000560
+trial 191: prob=0.500580, abs_bias=0.000580
+trial 192: prob=0.498400, abs_bias=0.001600
+trial 193: prob=0.498220, abs_bias=0.001780
+trial 194: prob=0.498320, abs_bias=0.001680
+trial 195: prob=0.499340, abs_bias=0.000660
+trial 196: prob=0.498920, abs_bias=0.001080
+trial 197: prob=0.500160, abs_bias=0.000160
+trial 198: prob=0.498820, abs_bias=0.001180
+trial 199: prob=0.498580, abs_bias=0.001420
+trial 200: prob=0.499120, abs_bias=0.000880
+  -- completed 200/500 trials  ·  exceedance so far: 5/200 = 2.5%  ·  max |bias| so far: 0.005820 --
+trial 201: prob=0.499920, abs_bias=0.000080
+trial 202: prob=0.500280, abs_bias=0.000280
+trial 203: prob=0.500500, abs_bias=0.000500
+trial 204: prob=0.497140, abs_bias=0.002860
+trial 205: prob=0.500900, abs_bias=0.000900
+trial 206: prob=0.501440, abs_bias=0.001440
+trial 207: prob=0.500700, abs_bias=0.000700
+trial 208: prob=0.496320, abs_bias=0.003680
+trial 209: prob=0.500540, abs_bias=0.000540
+trial 210: prob=0.501220, abs_bias=0.001220
+trial 211: prob=0.501180, abs_bias=0.001180
+trial 212: prob=0.497720, abs_bias=0.002280
+trial 213: prob=0.500320, abs_bias=0.000320
+trial 214: prob=0.500380, abs_bias=0.000380
+trial 215: prob=0.502900, abs_bias=0.002900
+trial 216: prob=0.500380, abs_bias=0.000380
+trial 217: prob=0.499000, abs_bias=0.001000
+trial 218: prob=0.499680, abs_bias=0.000320
+trial 219: prob=0.500260, abs_bias=0.000260
+trial 220: prob=0.498980, abs_bias=0.001020
+trial 221: prob=0.497120, abs_bias=0.002880
+trial 222: prob=0.502520, abs_bias=0.002520
+trial 223: prob=0.500160, abs_bias=0.000160
+trial 224: prob=0.501840, abs_bias=0.001840
+trial 225: prob=0.500200, abs_bias=0.000200
+trial 226: prob=0.502300, abs_bias=0.002300
+trial 227: prob=0.498700, abs_bias=0.001300
+trial 228: prob=0.498280, abs_bias=0.001720
+trial 229: prob=0.500440, abs_bias=0.000440
+trial 230: prob=0.496460, abs_bias=0.003540
+trial 231: prob=0.501020, abs_bias=0.001020
+trial 232: prob=0.498280, abs_bias=0.001720
+trial 233: prob=0.497740, abs_bias=0.002260
+trial 234: prob=0.499000, abs_bias=0.001000
+trial 235: prob=0.497700, abs_bias=0.002300
+trial 236: prob=0.501220, abs_bias=0.001220
+trial 237: prob=0.501980, abs_bias=0.001980
+trial 238: prob=0.501260, abs_bias=0.001260
+trial 239: prob=0.502000, abs_bias=0.002000
+trial 240: prob=0.500820, abs_bias=0.000820
+trial 241: prob=0.500420, abs_bias=0.000420
+trial 242: prob=0.496000, abs_bias=0.004000
+trial 243: prob=0.498480, abs_bias=0.001520
+trial 244: prob=0.498000, abs_bias=0.002000
+trial 245: prob=0.497620, abs_bias=0.002380
+trial 246: prob=0.496700, abs_bias=0.003300
+trial 247: prob=0.499760, abs_bias=0.000240
+trial 248: prob=0.499980, abs_bias=0.000020
+trial 249: prob=0.503160, abs_bias=0.003160
+trial 250: prob=0.501100, abs_bias=0.001100
+  -- completed 250/500 trials  ·  exceedance so far: 5/250 = 2.0%  ·  max |bias| so far: 0.005820 --
+trial 251: prob=0.497580, abs_bias=0.002420
+trial 252: prob=0.498500, abs_bias=0.001500
+trial 253: prob=0.501340, abs_bias=0.001340
+trial 254: prob=0.498340, abs_bias=0.001660
+trial 255: prob=0.500460, abs_bias=0.000460
+trial 256: prob=0.499840, abs_bias=0.000160
+trial 257: prob=0.498180, abs_bias=0.001820
+trial 258: prob=0.501480, abs_bias=0.001480
+trial 259: prob=0.500120, abs_bias=0.000120
+trial 260: prob=0.498960, abs_bias=0.001040
+trial 261: prob=0.502640, abs_bias=0.002640
+trial 262: prob=0.498140, abs_bias=0.001860
+trial 263: prob=0.500040, abs_bias=0.000040
+trial 264: prob=0.499720, abs_bias=0.000280
+trial 265: prob=0.497500, abs_bias=0.002500
+trial 266: prob=0.499680, abs_bias=0.000320
+trial 267: prob=0.498040, abs_bias=0.001960
+trial 268: prob=0.504160, abs_bias=0.004160
+trial 269: prob=0.500900, abs_bias=0.000900
+trial 270: prob=0.499820, abs_bias=0.000180
+trial 271: prob=0.496560, abs_bias=0.003440
+trial 272: prob=0.501080, abs_bias=0.001080
+trial 273: prob=0.500520, abs_bias=0.000520
+trial 274: prob=0.502660, abs_bias=0.002660
+trial 275: prob=0.504460, abs_bias=0.004460
+trial 276: prob=0.499820, abs_bias=0.000180
+trial 277: prob=0.497160, abs_bias=0.002840
+trial 278: prob=0.497460, abs_bias=0.002540
+trial 279: prob=0.501540, abs_bias=0.001540
+trial 280: prob=0.497780, abs_bias=0.002220
+trial 281: prob=0.500400, abs_bias=0.000400
+trial 282: prob=0.499620, abs_bias=0.000380
+trial 283: prob=0.498540, abs_bias=0.001460
+trial 284: prob=0.496920, abs_bias=0.003080
+trial 285: prob=0.500540, abs_bias=0.000540
+trial 286: prob=0.502020, abs_bias=0.002020
+trial 287: prob=0.504280, abs_bias=0.004280
+trial 288: prob=0.500700, abs_bias=0.000700
+trial 289: prob=0.501600, abs_bias=0.001600
+trial 290: prob=0.498560, abs_bias=0.001440
+trial 291: prob=0.500680, abs_bias=0.000680
+trial 292: prob=0.501460, abs_bias=0.001460
+trial 293: prob=0.499200, abs_bias=0.000800
+trial 294: prob=0.499220, abs_bias=0.000780
+trial 295: prob=0.498860, abs_bias=0.001140
+trial 296: prob=0.504320, abs_bias=0.004320
+trial 297: prob=0.501280, abs_bias=0.001280
+trial 298: prob=0.498140, abs_bias=0.001860
+trial 299: prob=0.497860, abs_bias=0.002140
+trial 300: prob=0.497180, abs_bias=0.002820
+  -- completed 300/500 trials  ·  exceedance so far: 5/300 = 1.7%  ·  max |bias| so far: 0.005820 --
+trial 301: prob=0.498780, abs_bias=0.001220
+trial 302: prob=0.498600, abs_bias=0.001400
+trial 303: prob=0.495700, abs_bias=0.004300
+trial 304: prob=0.498500, abs_bias=0.001500
+trial 305: prob=0.499900, abs_bias=0.000100
+trial 306: prob=0.499240, abs_bias=0.000760
+trial 307: prob=0.499240, abs_bias=0.000760
+trial 308: prob=0.497980, abs_bias=0.002020
+trial 309: prob=0.500720, abs_bias=0.000720
+trial 310: prob=0.502260, abs_bias=0.002260
+trial 311: prob=0.502960, abs_bias=0.002960
+trial 312: prob=0.498100, abs_bias=0.001900
+trial 313: prob=0.501020, abs_bias=0.001020
+trial 314: prob=0.500180, abs_bias=0.000180
+trial 315: prob=0.498560, abs_bias=0.001440
+trial 316: prob=0.501140, abs_bias=0.001140
+trial 317: prob=0.501160, abs_bias=0.001160
+trial 318: prob=0.502420, abs_bias=0.002420
+trial 319: prob=0.498140, abs_bias=0.001860
+trial 320: prob=0.493060, abs_bias=0.006940  *** EXCEEDS THRESHOLD ***
+trial 321: prob=0.501260, abs_bias=0.001260
+trial 322: prob=0.499940, abs_bias=0.000060
+trial 323: prob=0.498480, abs_bias=0.001520
+trial 324: prob=0.500660, abs_bias=0.000660
+trial 325: prob=0.495920, abs_bias=0.004080
+trial 326: prob=0.499920, abs_bias=0.000080
+trial 327: prob=0.499780, abs_bias=0.000220
+trial 328: prob=0.501000, abs_bias=0.001000
+trial 329: prob=0.497200, abs_bias=0.002800
+trial 330: prob=0.500460, abs_bias=0.000460
+trial 331: prob=0.498320, abs_bias=0.001680
+trial 332: prob=0.504480, abs_bias=0.004480  *** EXCEEDS THRESHOLD ***
+trial 333: prob=0.499500, abs_bias=0.000500
+trial 334: prob=0.502560, abs_bias=0.002560
+trial 335: prob=0.503140, abs_bias=0.003140
+trial 336: prob=0.498760, abs_bias=0.001240
+trial 337: prob=0.500040, abs_bias=0.000040
+trial 338: prob=0.500340, abs_bias=0.000340
+trial 339: prob=0.497820, abs_bias=0.002180
+trial 340: prob=0.499360, abs_bias=0.000640
+trial 341: prob=0.499640, abs_bias=0.000360
+trial 342: prob=0.502120, abs_bias=0.002120
+trial 343: prob=0.502020, abs_bias=0.002020
+trial 344: prob=0.499940, abs_bias=0.000060
+trial 345: prob=0.499420, abs_bias=0.000580
+trial 346: prob=0.496760, abs_bias=0.003240
+trial 347: prob=0.501500, abs_bias=0.001500
+trial 348: prob=0.502400, abs_bias=0.002400
+trial 349: prob=0.501160, abs_bias=0.001160
+trial 350: prob=0.499580, abs_bias=0.000420
+  -- completed 350/500 trials  ·  exceedance so far: 7/350 = 2.0%  ·  max |bias| so far: 0.006940 --
+trial 351: prob=0.503300, abs_bias=0.003300
+trial 352: prob=0.499120, abs_bias=0.000880
+trial 353: prob=0.500080, abs_bias=0.000080
+trial 354: prob=0.498740, abs_bias=0.001260
+trial 355: prob=0.501780, abs_bias=0.001780
+trial 356: prob=0.501980, abs_bias=0.001980
+trial 357: prob=0.498340, abs_bias=0.001660
+trial 358: prob=0.502920, abs_bias=0.002920
+trial 359: prob=0.499400, abs_bias=0.000600
+trial 360: prob=0.499860, abs_bias=0.000140
+trial 361: prob=0.502540, abs_bias=0.002540
+trial 362: prob=0.498180, abs_bias=0.001820
+trial 363: prob=0.499640, abs_bias=0.000360
+trial 364: prob=0.502860, abs_bias=0.002860
+trial 365: prob=0.502080, abs_bias=0.002080
+trial 366: prob=0.500420, abs_bias=0.000420
+trial 367: prob=0.497460, abs_bias=0.002540
+trial 368: prob=0.499080, abs_bias=0.000920
+trial 369: prob=0.497940, abs_bias=0.002060
+trial 370: prob=0.497580, abs_bias=0.002420
+trial 371: prob=0.498320, abs_bias=0.001680
+trial 372: prob=0.500820, abs_bias=0.000820
+trial 373: prob=0.501280, abs_bias=0.001280
+trial 374: prob=0.497900, abs_bias=0.002100
+trial 375: prob=0.499400, abs_bias=0.000600
+trial 376: prob=0.498920, abs_bias=0.001080
+trial 377: prob=0.501560, abs_bias=0.001560
+trial 378: prob=0.501040, abs_bias=0.001040
+trial 379: prob=0.498400, abs_bias=0.001600
+trial 380: prob=0.500640, abs_bias=0.000640
+trial 381: prob=0.497900, abs_bias=0.002100
+trial 382: prob=0.498980, abs_bias=0.001020
+trial 383: prob=0.498840, abs_bias=0.001160
+trial 384: prob=0.500580, abs_bias=0.000580
+trial 385: prob=0.498120, abs_bias=0.001880
+trial 386: prob=0.500120, abs_bias=0.000120
+trial 387: prob=0.505200, abs_bias=0.005200  *** EXCEEDS THRESHOLD ***
+trial 388: prob=0.503340, abs_bias=0.003340
+trial 389: prob=0.497540, abs_bias=0.002460
+trial 390: prob=0.499320, abs_bias=0.000680
+trial 391: prob=0.499040, abs_bias=0.000960
+trial 392: prob=0.498940, abs_bias=0.001060
+trial 393: prob=0.501300, abs_bias=0.001300
+trial 394: prob=0.499740, abs_bias=0.000260
+trial 395: prob=0.498920, abs_bias=0.001080
+trial 396: prob=0.501540, abs_bias=0.001540
+trial 397: prob=0.501480, abs_bias=0.001480
+trial 398: prob=0.501100, abs_bias=0.001100
+trial 399: prob=0.500940, abs_bias=0.000940
+trial 400: prob=0.498500, abs_bias=0.001500
+  -- completed 400/500 trials  ·  exceedance so far: 8/400 = 2.0%  ·  max |bias| so far: 0.006940 --
+trial 401: prob=0.500900, abs_bias=0.000900
+trial 402: prob=0.501180, abs_bias=0.001180
+trial 403: prob=0.500380, abs_bias=0.000380
+trial 404: prob=0.501020, abs_bias=0.001020
+trial 405: prob=0.500200, abs_bias=0.000200
+trial 406: prob=0.497640, abs_bias=0.002360
+trial 407: prob=0.499540, abs_bias=0.000460
+trial 408: prob=0.498340, abs_bias=0.001660
+trial 409: prob=0.493900, abs_bias=0.006100  *** EXCEEDS THRESHOLD ***
+trial 410: prob=0.498200, abs_bias=0.001800
+trial 411: prob=0.499600, abs_bias=0.000400
+trial 412: prob=0.499500, abs_bias=0.000500
+trial 413: prob=0.499720, abs_bias=0.000280
+trial 414: prob=0.497160, abs_bias=0.002840
+trial 415: prob=0.498780, abs_bias=0.001220
+trial 416: prob=0.500540, abs_bias=0.000540
+trial 417: prob=0.502860, abs_bias=0.002860
+trial 418: prob=0.500460, abs_bias=0.000460
+trial 419: prob=0.503340, abs_bias=0.003340
+trial 420: prob=0.500460, abs_bias=0.000460
+trial 421: prob=0.502400, abs_bias=0.002400
+trial 422: prob=0.501960, abs_bias=0.001960
+trial 423: prob=0.498580, abs_bias=0.001420
+trial 424: prob=0.500220, abs_bias=0.000220
+trial 425: prob=0.499920, abs_bias=0.000080
+trial 426: prob=0.500740, abs_bias=0.000740
+trial 427: prob=0.501080, abs_bias=0.001080
+trial 428: prob=0.501100, abs_bias=0.001100
+trial 429: prob=0.502580, abs_bias=0.002580
+trial 430: prob=0.498380, abs_bias=0.001620
+trial 431: prob=0.502640, abs_bias=0.002640
+trial 432: prob=0.501440, abs_bias=0.001440
+trial 433: prob=0.498740, abs_bias=0.001260
+trial 434: prob=0.499500, abs_bias=0.000500
+trial 435: prob=0.501420, abs_bias=0.001420
+trial 436: prob=0.498600, abs_bias=0.001400
+trial 437: prob=0.498060, abs_bias=0.001940
+trial 438: prob=0.498660, abs_bias=0.001340
+trial 439: prob=0.498220, abs_bias=0.001780
+trial 440: prob=0.504400, abs_bias=0.004400
+trial 441: prob=0.501300, abs_bias=0.001300
+trial 442: prob=0.497780, abs_bias=0.002220
+trial 443: prob=0.502500, abs_bias=0.002500
+trial 444: prob=0.499080, abs_bias=0.000920
+trial 445: prob=0.498040, abs_bias=0.001960
+trial 446: prob=0.498940, abs_bias=0.001060
+trial 447: prob=0.500900, abs_bias=0.000900
+trial 448: prob=0.497980, abs_bias=0.002020
+trial 449: prob=0.502240, abs_bias=0.002240
+trial 450: prob=0.499060, abs_bias=0.000940
+  -- completed 450/500 trials  ·  exceedance so far: 9/450 = 2.0%  ·  max |bias| so far: 0.006940 --
+trial 451: prob=0.497960, abs_bias=0.002040
+trial 452: prob=0.502360, abs_bias=0.002360
+trial 453: prob=0.498880, abs_bias=0.001120
+trial 454: prob=0.498700, abs_bias=0.001300
+trial 455: prob=0.501500, abs_bias=0.001500
+trial 456: prob=0.498060, abs_bias=0.001940
+trial 457: prob=0.499240, abs_bias=0.000760
+trial 458: prob=0.499320, abs_bias=0.000680
+trial 459: prob=0.499500, abs_bias=0.000500
+trial 460: prob=0.499140, abs_bias=0.000860
+trial 461: prob=0.500580, abs_bias=0.000580
+trial 462: prob=0.500660, abs_bias=0.000660
+trial 463: prob=0.497540, abs_bias=0.002460
+trial 464: prob=0.500280, abs_bias=0.000280
+trial 465: prob=0.503740, abs_bias=0.003740
+trial 466: prob=0.500480, abs_bias=0.000480
+trial 467: prob=0.501820, abs_bias=0.001820
+trial 468: prob=0.499680, abs_bias=0.000320
+trial 469: prob=0.498700, abs_bias=0.001300
+trial 470: prob=0.498860, abs_bias=0.001140
+trial 471: prob=0.500720, abs_bias=0.000720
+trial 472: prob=0.505560, abs_bias=0.005560  *** EXCEEDS THRESHOLD ***
+trial 473: prob=0.502020, abs_bias=0.002020
+trial 474: prob=0.501440, abs_bias=0.001440
+trial 475: prob=0.502080, abs_bias=0.002080
+trial 476: prob=0.501720, abs_bias=0.001720
+trial 477: prob=0.500520, abs_bias=0.000520
+trial 478: prob=0.501740, abs_bias=0.001740
+trial 479: prob=0.500240, abs_bias=0.000240
+trial 480: prob=0.497200, abs_bias=0.002800
+trial 481: prob=0.500020, abs_bias=0.000020
+trial 482: prob=0.496440, abs_bias=0.003560
+trial 483: prob=0.504260, abs_bias=0.004260
+trial 484: prob=0.502860, abs_bias=0.002860
+trial 485: prob=0.501040, abs_bias=0.001040
+trial 486: prob=0.502940, abs_bias=0.002940
+trial 487: prob=0.498020, abs_bias=0.001980
+trial 488: prob=0.499420, abs_bias=0.000580
+trial 489: prob=0.499000, abs_bias=0.001000
+trial 490: prob=0.500440, abs_bias=0.000440
+trial 491: prob=0.502400, abs_bias=0.002400
+trial 492: prob=0.498940, abs_bias=0.001060
+trial 493: prob=0.498980, abs_bias=0.001020
+trial 494: prob=0.502320, abs_bias=0.002320
+trial 495: prob=0.505540, abs_bias=0.005540  *** EXCEEDS THRESHOLD ***
+trial 496: prob=0.501340, abs_bias=0.001340
+trial 497: prob=0.500700, abs_bias=0.000700
+trial 498: prob=0.501180, abs_bias=0.001180
+trial 499: prob=0.500740, abs_bias=0.000740
+trial 500: prob=0.499600, abs_bias=0.000400
+  -- completed 500/500 trials  ·  exceedance so far: 11/500 = 2.2%  ·  max |bias| so far: 0.006940 --
+
+Completed 500/500 linear trials
+Trials exceeding threshold : 11/500 = 2.20%
+  (noise floor expectation : ~4.55% under null hypothesis)
+Mean |bias|                : 0.001622
+Max  |bias|                : 0.006940  (threshold = 0.00447)
+Best observed pair         : prob=0.493060, abs_bias=0.006940
+Results saved to           : mdhillspn_linear_bias_log_20260707_092039.csv
+
+========================================================================
+STEP 4: ALGEBRAIC DEGREE GROWTH ESTIMATOR (LOWER BOUNDS)
+========================================================================
+Active input bits : 6  (2^6 = 64 encrypts/trial)
+Trials per round  : 4
+
+--- Rounds = 1 ---
+  trial  1: degree= 5, out_bit=  6, active_bits=[10, 20, 43, 78, 93, 112]
+  trial  2: degree= 5, out_bit= 80, active_bits=[9, 21, 24, 67, 91, 125]
+  trial  3: degree= 5, out_bit= 57, active_bits=[15, 19, 29, 50, 60, 78]
+  trial  4: degree= 5, out_bit= 13, active_bits=[17, 31, 60, 71, 88, 119]
+  best lower bound = 5, mean = 5.00, theoretical max = 6
+
+--- Rounds = 2 ---
+  trial  1: degree= 6, out_bit= 70, active_bits=[0, 31, 63, 82, 86, 98]
+  trial  2: degree= 6, out_bit= 80, active_bits=[6, 49, 58, 72, 91, 111]
+  trial  3: degree= 6, out_bit=126, active_bits=[2, 7, 29, 35, 48, 55]
+  trial  4: degree= 6, out_bit= 15, active_bits=[20, 24, 26, 45, 108, 111]
+  best lower bound = 6, mean = 6.00, theoretical max = 6
+
+--- Rounds = 4 ---
+  trial  1: degree= 6, out_bit= 48, active_bits=[12, 63, 64, 66, 89, 101]
+  trial  2: degree= 6, out_bit= 36, active_bits=[7, 47, 59, 82, 94, 97]
+  trial  3: degree= 5, out_bit= 30, active_bits=[8, 23, 26, 63, 66, 86]
+  trial  4: degree= 6, out_bit=  5, active_bits=[0, 17, 36, 71, 110, 123]
+  best lower bound = 6, mean = 5.75, theoretical max = 6
+
+--- Rounds = 5 ---
+  trial  1: degree= 5, out_bit= 47, active_bits=[16, 34, 51, 58, 93, 124]
+  trial  2: degree= 6, out_bit= 83, active_bits=[1, 47, 64, 95, 104, 111]
+  trial  3: degree= 6, out_bit= 20, active_bits=[34, 55, 58, 73, 80, 102]
+  trial  4: degree= 6, out_bit=  8, active_bits=[34, 35, 41, 55, 62, 64]
+  best lower bound = 6, mean = 5.75, theoretical max = 6
+
+--- Rounds = 8 ---
+  trial  1: degree= 6, out_bit= 39, active_bits=[46, 93, 94, 105, 121, 125]
+  trial  2: degree= 5, out_bit=  2, active_bits=[0, 39, 67, 73, 107, 116]
+  trial  3: degree= 6, out_bit= 84, active_bits=[8, 16, 55, 62, 93, 122]
+  trial  4: degree= 6, out_bit= 37, active_bits=[9, 12, 28, 82, 85, 96]
+  best lower bound = 6, mean = 5.75, theoretical max = 6
+
+--- Rounds = 12 ---
+  trial  1: degree= 6, out_bit= 14, active_bits=[22, 24, 36, 50, 80, 89]
+  trial  2: degree= 5, out_bit= 98, active_bits=[11, 39, 69, 98, 109, 114]
+  trial  3: degree= 5, out_bit= 55, active_bits=[4, 27, 46, 66, 104, 122]
+  trial  4: degree= 6, out_bit=  8, active_bits=[3, 25, 49, 69, 82, 89]
+  best lower bound = 6, mean = 5.50, theoretical max = 6
+
+========================================================================
+ALGEBRAIC DEGREE SUMMARY
+========================================================================
+Rounds= 1 | best lb= 5 | mean=5.00 | theoretical max=6
+Rounds= 2 | best lb= 6 | mean=6.00 | theoretical max=6
+Rounds= 4 | best lb= 6 | mean=5.75 | theoretical max=6
+Rounds= 5 | best lb= 6 | mean=5.75 | theoretical max=6
+Rounds= 8 | best lb= 6 | mean=5.75 | theoretical max=6
+Rounds=12 | best lb= 6 | mean=5.50 | theoretical max=6
+
+All metrics complete in 281 s.

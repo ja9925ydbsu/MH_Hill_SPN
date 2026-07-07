@@ -1,0 +1,537 @@
+========================================================================
+MD-Hill-SPN LINEAR-BIAS PROBE  (Revision 3, Cauchy MDS)
+========================================================================
+Timestamp  : 20260707_100928
+Platform   : Windows-11-10.0.26200-SP0  Python 3.14.3
+Rounds     : 12
+Trials     : 500 random mask pairs
+Samples    : 50000 plaintexts per trial
+Threshold  : 1/sqrt(N) = 0.00447  (= 2 SE; null exceedance ~4.55%)
+Key        : Argon2id (t=3, m=65536 KiB, p=2, l=32)
+password  : 6c5c9fa80b694efc1f7e00baecc3cc7514f16d9db92925b9
+salt      : 1afebd94c5cfcff0be62b8ad41cbbc51
+Log file   : mdhill_linear_r12_20260707_100928.txt
+CSV file   : mdhill_linear_r12_20260707_100928.csv
+
+trial   1: prob=0.500220  abs_bias=0.000220  z= +0.10
+trial   2: prob=0.500680  abs_bias=0.000680  z= +0.30
+trial   3: prob=0.501720  abs_bias=0.001720  z= +0.77
+trial   4: prob=0.497880  abs_bias=0.002120  z= -0.95
+trial   5: prob=0.501480  abs_bias=0.001480  z= +0.66
+trial   6: prob=0.497560  abs_bias=0.002440  z= -1.09
+trial   7: prob=0.501420  abs_bias=0.001420  z= +0.64
+trial   8: prob=0.496720  abs_bias=0.003280  z= -1.47
+trial   9: prob=0.503160  abs_bias=0.003160  z= +1.41
+trial  10: prob=0.500700  abs_bias=0.000700  z= +0.31
+trial  11: prob=0.499780  abs_bias=0.000220  z= -0.10
+trial  12: prob=0.503260  abs_bias=0.003260  z= +1.46
+trial  13: prob=0.496300  abs_bias=0.003700  z= -1.65
+trial  14: prob=0.503380  abs_bias=0.003380  z= +1.51
+trial  15: prob=0.500900  abs_bias=0.000900  z= +0.40
+trial  16: prob=0.499880  abs_bias=0.000120  z= -0.05
+trial  17: prob=0.498060  abs_bias=0.001940  z= -0.87
+trial  18: prob=0.498740  abs_bias=0.001260  z= -0.56
+trial  19: prob=0.498680  abs_bias=0.001320  z= -0.59
+trial  20: prob=0.499240  abs_bias=0.000760  z= -0.34
+trial  21: prob=0.499720  abs_bias=0.000280  z= -0.13
+trial  22: prob=0.494220  abs_bias=0.005780  z= -2.58  *** EXCEEDS THRESHOLD ***
+trial  23: prob=0.499640  abs_bias=0.000360  z= -0.16
+trial  24: prob=0.500020  abs_bias=0.000020  z= +0.01
+trial  25: prob=0.498540  abs_bias=0.001460  z= -0.65
+trial  26: prob=0.497580  abs_bias=0.002420  z= -1.08
+trial  27: prob=0.498820  abs_bias=0.001180  z= -0.53
+trial  28: prob=0.497420  abs_bias=0.002580  z= -1.15
+trial  29: prob=0.504040  abs_bias=0.004040  z= +1.81
+trial  30: prob=0.502340  abs_bias=0.002340  z= +1.05
+trial  31: prob=0.500460  abs_bias=0.000460  z= +0.21
+trial  32: prob=0.506880  abs_bias=0.006880  z= +3.08  *** EXCEEDS THRESHOLD ***
+trial  33: prob=0.498420  abs_bias=0.001580  z= -0.71
+trial  34: prob=0.497080  abs_bias=0.002920  z= -1.31
+trial  35: prob=0.499160  abs_bias=0.000840  z= -0.38
+trial  36: prob=0.499560  abs_bias=0.000440  z= -0.20
+trial  37: prob=0.501760  abs_bias=0.001760  z= +0.79
+trial  38: prob=0.497540  abs_bias=0.002460  z= -1.10
+trial  39: prob=0.501320  abs_bias=0.001320  z= +0.59
+trial  40: prob=0.497560  abs_bias=0.002440  z= -1.09
+trial  41: prob=0.500280  abs_bias=0.000280  z= +0.13
+trial  42: prob=0.502120  abs_bias=0.002120  z= +0.95
+trial  43: prob=0.500420  abs_bias=0.000420  z= +0.19
+trial  44: prob=0.501620  abs_bias=0.001620  z= +0.72
+trial  45: prob=0.500360  abs_bias=0.000360  z= +0.16
+trial  46: prob=0.499820  abs_bias=0.000180  z= -0.08
+trial  47: prob=0.499480  abs_bias=0.000520  z= -0.23
+trial  48: prob=0.497680  abs_bias=0.002320  z= -1.04
+trial  49: prob=0.501140  abs_bias=0.001140  z= +0.51
+trial  50: prob=0.500960  abs_bias=0.000960  z= +0.43
+  -- 50/500 trials · exceedance 2/50 = 4.0% · max |bias| 0.006880 --
+trial  51: prob=0.501700  abs_bias=0.001700  z= +0.76
+trial  52: prob=0.501800  abs_bias=0.001800  z= +0.80
+trial  53: prob=0.499300  abs_bias=0.000700  z= -0.31
+trial  54: prob=0.497540  abs_bias=0.002460  z= -1.10
+trial  55: prob=0.498020  abs_bias=0.001980  z= -0.89
+trial  56: prob=0.498720  abs_bias=0.001280  z= -0.57
+trial  57: prob=0.499360  abs_bias=0.000640  z= -0.29
+trial  58: prob=0.504100  abs_bias=0.004100  z= +1.83
+trial  59: prob=0.502280  abs_bias=0.002280  z= +1.02
+trial  60: prob=0.500980  abs_bias=0.000980  z= +0.44
+trial  61: prob=0.500840  abs_bias=0.000840  z= +0.38
+trial  62: prob=0.498420  abs_bias=0.001580  z= -0.71
+trial  63: prob=0.498820  abs_bias=0.001180  z= -0.53
+trial  64: prob=0.500840  abs_bias=0.000840  z= +0.38
+trial  65: prob=0.501680  abs_bias=0.001680  z= +0.75
+trial  66: prob=0.506420  abs_bias=0.006420  z= +2.87  *** EXCEEDS THRESHOLD ***
+trial  67: prob=0.501320  abs_bias=0.001320  z= +0.59
+trial  68: prob=0.498660  abs_bias=0.001340  z= -0.60
+trial  69: prob=0.499500  abs_bias=0.000500  z= -0.22
+trial  70: prob=0.499160  abs_bias=0.000840  z= -0.38
+trial  71: prob=0.501340  abs_bias=0.001340  z= +0.60
+trial  72: prob=0.501900  abs_bias=0.001900  z= +0.85
+trial  73: prob=0.502460  abs_bias=0.002460  z= +1.10
+trial  74: prob=0.497640  abs_bias=0.002360  z= -1.06
+trial  75: prob=0.497980  abs_bias=0.002020  z= -0.90
+trial  76: prob=0.500720  abs_bias=0.000720  z= +0.32
+trial  77: prob=0.497540  abs_bias=0.002460  z= -1.10
+trial  78: prob=0.500440  abs_bias=0.000440  z= +0.20
+trial  79: prob=0.498200  abs_bias=0.001800  z= -0.80
+trial  80: prob=0.499260  abs_bias=0.000740  z= -0.33
+trial  81: prob=0.497500  abs_bias=0.002500  z= -1.12
+trial  82: prob=0.502040  abs_bias=0.002040  z= +0.91
+trial  83: prob=0.501940  abs_bias=0.001940  z= +0.87
+trial  84: prob=0.498260  abs_bias=0.001740  z= -0.78
+trial  85: prob=0.499740  abs_bias=0.000260  z= -0.12
+trial  86: prob=0.501780  abs_bias=0.001780  z= +0.80
+trial  87: prob=0.496860  abs_bias=0.003140  z= -1.40
+trial  88: prob=0.501240  abs_bias=0.001240  z= +0.55
+trial  89: prob=0.499580  abs_bias=0.000420  z= -0.19
+trial  90: prob=0.499560  abs_bias=0.000440  z= -0.20
+trial  91: prob=0.499840  abs_bias=0.000160  z= -0.07
+trial  92: prob=0.496220  abs_bias=0.003780  z= -1.69
+trial  93: prob=0.497120  abs_bias=0.002880  z= -1.29
+trial  94: prob=0.497880  abs_bias=0.002120  z= -0.95
+trial  95: prob=0.498240  abs_bias=0.001760  z= -0.79
+trial  96: prob=0.500140  abs_bias=0.000140  z= +0.06
+trial  97: prob=0.501860  abs_bias=0.001860  z= +0.83
+trial  98: prob=0.503580  abs_bias=0.003580  z= +1.60
+trial  99: prob=0.495960  abs_bias=0.004040  z= -1.81
+trial 100: prob=0.498180  abs_bias=0.001820  z= -0.81
+  -- 100/500 trials · exceedance 3/100 = 3.0% · max |bias| 0.006880 --
+trial 101: prob=0.503400  abs_bias=0.003400  z= +1.52
+trial 102: prob=0.492960  abs_bias=0.007040  z= -3.15  *** EXCEEDS THRESHOLD ***
+trial 103: prob=0.501320  abs_bias=0.001320  z= +0.59
+trial 104: prob=0.502360  abs_bias=0.002360  z= +1.06
+trial 105: prob=0.495900  abs_bias=0.004100  z= -1.83
+trial 106: prob=0.500120  abs_bias=0.000120  z= +0.05
+trial 107: prob=0.499640  abs_bias=0.000360  z= -0.16
+trial 108: prob=0.500020  abs_bias=0.000020  z= +0.01
+trial 109: prob=0.498440  abs_bias=0.001560  z= -0.70
+trial 110: prob=0.503740  abs_bias=0.003740  z= +1.67
+trial 111: prob=0.500180  abs_bias=0.000180  z= +0.08
+trial 112: prob=0.500580  abs_bias=0.000580  z= +0.26
+trial 113: prob=0.500480  abs_bias=0.000480  z= +0.21
+trial 114: prob=0.499860  abs_bias=0.000140  z= -0.06
+trial 115: prob=0.501680  abs_bias=0.001680  z= +0.75
+trial 116: prob=0.496900  abs_bias=0.003100  z= -1.39
+trial 117: prob=0.499720  abs_bias=0.000280  z= -0.13
+trial 118: prob=0.501660  abs_bias=0.001660  z= +0.74
+trial 119: prob=0.499260  abs_bias=0.000740  z= -0.33
+trial 120: prob=0.502860  abs_bias=0.002860  z= +1.28
+trial 121: prob=0.498000  abs_bias=0.002000  z= -0.89
+trial 122: prob=0.498860  abs_bias=0.001140  z= -0.51
+trial 123: prob=0.500500  abs_bias=0.000500  z= +0.22
+trial 124: prob=0.502420  abs_bias=0.002420  z= +1.08
+trial 125: prob=0.498680  abs_bias=0.001320  z= -0.59
+trial 126: prob=0.493400  abs_bias=0.006600  z= -2.95  *** EXCEEDS THRESHOLD ***
+trial 127: prob=0.502400  abs_bias=0.002400  z= +1.07
+trial 128: prob=0.498540  abs_bias=0.001460  z= -0.65
+trial 129: prob=0.498600  abs_bias=0.001400  z= -0.63
+trial 130: prob=0.501840  abs_bias=0.001840  z= +0.82
+trial 131: prob=0.502000  abs_bias=0.002000  z= +0.89
+trial 132: prob=0.502140  abs_bias=0.002140  z= +0.96
+trial 133: prob=0.499860  abs_bias=0.000140  z= -0.06
+trial 134: prob=0.499380  abs_bias=0.000620  z= -0.28
+trial 135: prob=0.500080  abs_bias=0.000080  z= +0.04
+trial 136: prob=0.502560  abs_bias=0.002560  z= +1.14
+trial 137: prob=0.500240  abs_bias=0.000240  z= +0.11
+trial 138: prob=0.498780  abs_bias=0.001220  z= -0.55
+trial 139: prob=0.501800  abs_bias=0.001800  z= +0.80
+trial 140: prob=0.497340  abs_bias=0.002660  z= -1.19
+trial 141: prob=0.498380  abs_bias=0.001620  z= -0.72
+trial 142: prob=0.498860  abs_bias=0.001140  z= -0.51
+trial 143: prob=0.499380  abs_bias=0.000620  z= -0.28
+trial 144: prob=0.499100  abs_bias=0.000900  z= -0.40
+trial 145: prob=0.501460  abs_bias=0.001460  z= +0.65
+trial 146: prob=0.502300  abs_bias=0.002300  z= +1.03
+trial 147: prob=0.502180  abs_bias=0.002180  z= +0.97
+trial 148: prob=0.501420  abs_bias=0.001420  z= +0.64
+trial 149: prob=0.502520  abs_bias=0.002520  z= +1.13
+trial 150: prob=0.503100  abs_bias=0.003100  z= +1.39
+  -- 150/500 trials · exceedance 5/150 = 3.3% · max |bias| 0.007040 --
+trial 151: prob=0.498760  abs_bias=0.001240  z= -0.55
+trial 152: prob=0.501420  abs_bias=0.001420  z= +0.64
+trial 153: prob=0.494840  abs_bias=0.005160  z= -2.31  *** EXCEEDS THRESHOLD ***
+trial 154: prob=0.501920  abs_bias=0.001920  z= +0.86
+trial 155: prob=0.502140  abs_bias=0.002140  z= +0.96
+trial 156: prob=0.504160  abs_bias=0.004160  z= +1.86
+trial 157: prob=0.499520  abs_bias=0.000480  z= -0.21
+trial 158: prob=0.503180  abs_bias=0.003180  z= +1.42
+trial 159: prob=0.499080  abs_bias=0.000920  z= -0.41
+trial 160: prob=0.502280  abs_bias=0.002280  z= +1.02
+trial 161: prob=0.499900  abs_bias=0.000100  z= -0.04
+trial 162: prob=0.499400  abs_bias=0.000600  z= -0.27
+trial 163: prob=0.499720  abs_bias=0.000280  z= -0.13
+trial 164: prob=0.501340  abs_bias=0.001340  z= +0.60
+trial 165: prob=0.502220  abs_bias=0.002220  z= +0.99
+trial 166: prob=0.503440  abs_bias=0.003440  z= +1.54
+trial 167: prob=0.500160  abs_bias=0.000160  z= +0.07
+trial 168: prob=0.500340  abs_bias=0.000340  z= +0.15
+trial 169: prob=0.499620  abs_bias=0.000380  z= -0.17
+trial 170: prob=0.503500  abs_bias=0.003500  z= +1.57
+trial 171: prob=0.496740  abs_bias=0.003260  z= -1.46
+trial 172: prob=0.501300  abs_bias=0.001300  z= +0.58
+trial 173: prob=0.499940  abs_bias=0.000060  z= -0.03
+trial 174: prob=0.498220  abs_bias=0.001780  z= -0.80
+trial 175: prob=0.499080  abs_bias=0.000920  z= -0.41
+trial 176: prob=0.505140  abs_bias=0.005140  z= +2.30  *** EXCEEDS THRESHOLD ***
+trial 177: prob=0.498700  abs_bias=0.001300  z= -0.58
+trial 178: prob=0.499040  abs_bias=0.000960  z= -0.43
+trial 179: prob=0.499080  abs_bias=0.000920  z= -0.41
+trial 180: prob=0.503760  abs_bias=0.003760  z= +1.68
+trial 181: prob=0.497200  abs_bias=0.002800  z= -1.25
+trial 182: prob=0.501300  abs_bias=0.001300  z= +0.58
+trial 183: prob=0.503420  abs_bias=0.003420  z= +1.53
+trial 184: prob=0.501900  abs_bias=0.001900  z= +0.85
+trial 185: prob=0.497920  abs_bias=0.002080  z= -0.93
+trial 186: prob=0.499800  abs_bias=0.000200  z= -0.09
+trial 187: prob=0.498240  abs_bias=0.001760  z= -0.79
+trial 188: prob=0.500720  abs_bias=0.000720  z= +0.32
+trial 189: prob=0.501940  abs_bias=0.001940  z= +0.87
+trial 190: prob=0.495940  abs_bias=0.004060  z= -1.82
+trial 191: prob=0.499160  abs_bias=0.000840  z= -0.38
+trial 192: prob=0.498580  abs_bias=0.001420  z= -0.64
+trial 193: prob=0.498620  abs_bias=0.001380  z= -0.62
+trial 194: prob=0.499000  abs_bias=0.001000  z= -0.45
+trial 195: prob=0.500520  abs_bias=0.000520  z= +0.23
+trial 196: prob=0.503660  abs_bias=0.003660  z= +1.64
+trial 197: prob=0.502620  abs_bias=0.002620  z= +1.17
+trial 198: prob=0.497680  abs_bias=0.002320  z= -1.04
+trial 199: prob=0.495760  abs_bias=0.004240  z= -1.90
+trial 200: prob=0.500980  abs_bias=0.000980  z= +0.44
+  -- 200/500 trials · exceedance 7/200 = 3.5% · max |bias| 0.007040 --
+trial 201: prob=0.501900  abs_bias=0.001900  z= +0.85
+trial 202: prob=0.495440  abs_bias=0.004560  z= -2.04  *** EXCEEDS THRESHOLD ***
+trial 203: prob=0.498200  abs_bias=0.001800  z= -0.80
+trial 204: prob=0.502020  abs_bias=0.002020  z= +0.90
+trial 205: prob=0.500520  abs_bias=0.000520  z= +0.23
+trial 206: prob=0.498580  abs_bias=0.001420  z= -0.64
+trial 207: prob=0.499300  abs_bias=0.000700  z= -0.31
+trial 208: prob=0.499200  abs_bias=0.000800  z= -0.36
+trial 209: prob=0.498760  abs_bias=0.001240  z= -0.55
+trial 210: prob=0.504060  abs_bias=0.004060  z= +1.82
+trial 211: prob=0.501160  abs_bias=0.001160  z= +0.52
+trial 212: prob=0.504220  abs_bias=0.004220  z= +1.89
+trial 213: prob=0.496040  abs_bias=0.003960  z= -1.77
+trial 214: prob=0.498720  abs_bias=0.001280  z= -0.57
+trial 215: prob=0.498220  abs_bias=0.001780  z= -0.80
+trial 216: prob=0.497540  abs_bias=0.002460  z= -1.10
+trial 217: prob=0.500240  abs_bias=0.000240  z= +0.11
+trial 218: prob=0.501180  abs_bias=0.001180  z= +0.53
+trial 219: prob=0.501780  abs_bias=0.001780  z= +0.80
+trial 220: prob=0.498340  abs_bias=0.001660  z= -0.74
+trial 221: prob=0.499100  abs_bias=0.000900  z= -0.40
+trial 222: prob=0.500120  abs_bias=0.000120  z= +0.05
+trial 223: prob=0.501000  abs_bias=0.001000  z= +0.45
+trial 224: prob=0.498720  abs_bias=0.001280  z= -0.57
+trial 225: prob=0.504400  abs_bias=0.004400  z= +1.97
+trial 226: prob=0.496420  abs_bias=0.003580  z= -1.60
+trial 227: prob=0.499800  abs_bias=0.000200  z= -0.09
+trial 228: prob=0.497900  abs_bias=0.002100  z= -0.94
+trial 229: prob=0.501640  abs_bias=0.001640  z= +0.73
+trial 230: prob=0.497040  abs_bias=0.002960  z= -1.32
+trial 231: prob=0.502600  abs_bias=0.002600  z= +1.16
+trial 232: prob=0.498480  abs_bias=0.001520  z= -0.68
+trial 233: prob=0.502600  abs_bias=0.002600  z= +1.16
+trial 234: prob=0.500720  abs_bias=0.000720  z= +0.32
+trial 235: prob=0.499620  abs_bias=0.000380  z= -0.17
+trial 236: prob=0.500680  abs_bias=0.000680  z= +0.30
+trial 237: prob=0.496120  abs_bias=0.003880  z= -1.74
+trial 238: prob=0.502040  abs_bias=0.002040  z= +0.91
+trial 239: prob=0.496460  abs_bias=0.003540  z= -1.58
+trial 240: prob=0.497640  abs_bias=0.002360  z= -1.06
+trial 241: prob=0.497900  abs_bias=0.002100  z= -0.94
+trial 242: prob=0.496820  abs_bias=0.003180  z= -1.42
+trial 243: prob=0.499980  abs_bias=0.000020  z= -0.01
+trial 244: prob=0.503580  abs_bias=0.003580  z= +1.60
+trial 245: prob=0.500100  abs_bias=0.000100  z= +0.04
+trial 246: prob=0.502100  abs_bias=0.002100  z= +0.94
+trial 247: prob=0.497040  abs_bias=0.002960  z= -1.32
+trial 248: prob=0.501240  abs_bias=0.001240  z= +0.55
+trial 249: prob=0.502400  abs_bias=0.002400  z= +1.07
+trial 250: prob=0.498660  abs_bias=0.001340  z= -0.60
+  -- 250/500 trials · exceedance 8/250 = 3.2% · max |bias| 0.007040 --
+trial 251: prob=0.497760  abs_bias=0.002240  z= -1.00
+trial 252: prob=0.503100  abs_bias=0.003100  z= +1.39
+trial 253: prob=0.498960  abs_bias=0.001040  z= -0.47
+trial 254: prob=0.500920  abs_bias=0.000920  z= +0.41
+trial 255: prob=0.502600  abs_bias=0.002600  z= +1.16
+trial 256: prob=0.498400  abs_bias=0.001600  z= -0.72
+trial 257: prob=0.500920  abs_bias=0.000920  z= +0.41
+trial 258: prob=0.497080  abs_bias=0.002920  z= -1.31
+trial 259: prob=0.499480  abs_bias=0.000520  z= -0.23
+trial 260: prob=0.503500  abs_bias=0.003500  z= +1.57
+trial 261: prob=0.496780  abs_bias=0.003220  z= -1.44
+trial 262: prob=0.496940  abs_bias=0.003060  z= -1.37
+trial 263: prob=0.501280  abs_bias=0.001280  z= +0.57
+trial 264: prob=0.498960  abs_bias=0.001040  z= -0.47
+trial 265: prob=0.496160  abs_bias=0.003840  z= -1.72
+trial 266: prob=0.501460  abs_bias=0.001460  z= +0.65
+trial 267: prob=0.499480  abs_bias=0.000520  z= -0.23
+trial 268: prob=0.502820  abs_bias=0.002820  z= +1.26
+trial 269: prob=0.501800  abs_bias=0.001800  z= +0.80
+trial 270: prob=0.500480  abs_bias=0.000480  z= +0.21
+trial 271: prob=0.500660  abs_bias=0.000660  z= +0.30
+trial 272: prob=0.499200  abs_bias=0.000800  z= -0.36
+trial 273: prob=0.498760  abs_bias=0.001240  z= -0.55
+trial 274: prob=0.499520  abs_bias=0.000480  z= -0.21
+trial 275: prob=0.501860  abs_bias=0.001860  z= +0.83
+trial 276: prob=0.499440  abs_bias=0.000560  z= -0.25
+trial 277: prob=0.497740  abs_bias=0.002260  z= -1.01
+trial 278: prob=0.499380  abs_bias=0.000620  z= -0.28
+trial 279: prob=0.499900  abs_bias=0.000100  z= -0.04
+trial 280: prob=0.498500  abs_bias=0.001500  z= -0.67
+trial 281: prob=0.499220  abs_bias=0.000780  z= -0.35
+trial 282: prob=0.502380  abs_bias=0.002380  z= +1.06
+trial 283: prob=0.501200  abs_bias=0.001200  z= +0.54
+trial 284: prob=0.501120  abs_bias=0.001120  z= +0.50
+trial 285: prob=0.500800  abs_bias=0.000800  z= +0.36
+trial 286: prob=0.500420  abs_bias=0.000420  z= +0.19
+trial 287: prob=0.498640  abs_bias=0.001360  z= -0.61
+trial 288: prob=0.502460  abs_bias=0.002460  z= +1.10
+trial 289: prob=0.499880  abs_bias=0.000120  z= -0.05
+trial 290: prob=0.500180  abs_bias=0.000180  z= +0.08
+trial 291: prob=0.498640  abs_bias=0.001360  z= -0.61
+trial 292: prob=0.498200  abs_bias=0.001800  z= -0.80
+trial 293: prob=0.503420  abs_bias=0.003420  z= +1.53
+trial 294: prob=0.501160  abs_bias=0.001160  z= +0.52
+trial 295: prob=0.497660  abs_bias=0.002340  z= -1.05
+trial 296: prob=0.501620  abs_bias=0.001620  z= +0.72
+trial 297: prob=0.501180  abs_bias=0.001180  z= +0.53
+trial 298: prob=0.501260  abs_bias=0.001260  z= +0.56
+trial 299: prob=0.497400  abs_bias=0.002600  z= -1.16
+trial 300: prob=0.502040  abs_bias=0.002040  z= +0.91
+  -- 300/500 trials · exceedance 8/300 = 2.7% · max |bias| 0.007040 --
+trial 301: prob=0.503000  abs_bias=0.003000  z= +1.34
+trial 302: prob=0.499880  abs_bias=0.000120  z= -0.05
+trial 303: prob=0.501220  abs_bias=0.001220  z= +0.55
+trial 304: prob=0.497780  abs_bias=0.002220  z= -0.99
+trial 305: prob=0.494920  abs_bias=0.005080  z= -2.27  *** EXCEEDS THRESHOLD ***
+trial 306: prob=0.499940  abs_bias=0.000060  z= -0.03
+trial 307: prob=0.502100  abs_bias=0.002100  z= +0.94
+trial 308: prob=0.504600  abs_bias=0.004600  z= +2.06  *** EXCEEDS THRESHOLD ***
+trial 309: prob=0.498100  abs_bias=0.001900  z= -0.85
+trial 310: prob=0.502220  abs_bias=0.002220  z= +0.99
+trial 311: prob=0.498060  abs_bias=0.001940  z= -0.87
+trial 312: prob=0.503360  abs_bias=0.003360  z= +1.50
+trial 313: prob=0.499200  abs_bias=0.000800  z= -0.36
+trial 314: prob=0.503680  abs_bias=0.003680  z= +1.65
+trial 315: prob=0.500200  abs_bias=0.000200  z= +0.09
+trial 316: prob=0.505340  abs_bias=0.005340  z= +2.39  *** EXCEEDS THRESHOLD ***
+trial 317: prob=0.498620  abs_bias=0.001380  z= -0.62
+trial 318: prob=0.500440  abs_bias=0.000440  z= +0.20
+trial 319: prob=0.499140  abs_bias=0.000860  z= -0.38
+trial 320: prob=0.500460  abs_bias=0.000460  z= +0.21
+trial 321: prob=0.501060  abs_bias=0.001060  z= +0.47
+trial 322: prob=0.498000  abs_bias=0.002000  z= -0.89
+trial 323: prob=0.497060  abs_bias=0.002940  z= -1.31
+trial 324: prob=0.499240  abs_bias=0.000760  z= -0.34
+trial 325: prob=0.497240  abs_bias=0.002760  z= -1.23
+trial 326: prob=0.501820  abs_bias=0.001820  z= +0.81
+trial 327: prob=0.498160  abs_bias=0.001840  z= -0.82
+trial 328: prob=0.496040  abs_bias=0.003960  z= -1.77
+trial 329: prob=0.498600  abs_bias=0.001400  z= -0.63
+trial 330: prob=0.503340  abs_bias=0.003340  z= +1.49
+trial 331: prob=0.495800  abs_bias=0.004200  z= -1.88
+trial 332: prob=0.497920  abs_bias=0.002080  z= -0.93
+trial 333: prob=0.502500  abs_bias=0.002500  z= +1.12
+trial 334: prob=0.498560  abs_bias=0.001440  z= -0.64
+trial 335: prob=0.497540  abs_bias=0.002460  z= -1.10
+trial 336: prob=0.501860  abs_bias=0.001860  z= +0.83
+trial 337: prob=0.503180  abs_bias=0.003180  z= +1.42
+trial 338: prob=0.502580  abs_bias=0.002580  z= +1.15
+trial 339: prob=0.502080  abs_bias=0.002080  z= +0.93
+trial 340: prob=0.503200  abs_bias=0.003200  z= +1.43
+trial 341: prob=0.502100  abs_bias=0.002100  z= +0.94
+trial 342: prob=0.502380  abs_bias=0.002380  z= +1.06
+trial 343: prob=0.497660  abs_bias=0.002340  z= -1.05
+trial 344: prob=0.496480  abs_bias=0.003520  z= -1.57
+trial 345: prob=0.495280  abs_bias=0.004720  z= -2.11  *** EXCEEDS THRESHOLD ***
+trial 346: prob=0.495220  abs_bias=0.004780  z= -2.14  *** EXCEEDS THRESHOLD ***
+trial 347: prob=0.497240  abs_bias=0.002760  z= -1.23
+trial 348: prob=0.497900  abs_bias=0.002100  z= -0.94
+trial 349: prob=0.499700  abs_bias=0.000300  z= -0.13
+trial 350: prob=0.500960  abs_bias=0.000960  z= +0.43
+  -- 350/500 trials · exceedance 13/350 = 3.7% · max |bias| 0.007040 --
+trial 351: prob=0.502460  abs_bias=0.002460  z= +1.10
+trial 352: prob=0.501000  abs_bias=0.001000  z= +0.45
+trial 353: prob=0.500000  abs_bias=0.000000  z= +0.00
+trial 354: prob=0.502880  abs_bias=0.002880  z= +1.29
+trial 355: prob=0.495320  abs_bias=0.004680  z= -2.09  *** EXCEEDS THRESHOLD ***
+trial 356: prob=0.499900  abs_bias=0.000100  z= -0.04
+trial 357: prob=0.502300  abs_bias=0.002300  z= +1.03
+trial 358: prob=0.502120  abs_bias=0.002120  z= +0.95
+trial 359: prob=0.498460  abs_bias=0.001540  z= -0.69
+trial 360: prob=0.498300  abs_bias=0.001700  z= -0.76
+trial 361: prob=0.503500  abs_bias=0.003500  z= +1.57
+trial 362: prob=0.497400  abs_bias=0.002600  z= -1.16
+trial 363: prob=0.498320  abs_bias=0.001680  z= -0.75
+trial 364: prob=0.502200  abs_bias=0.002200  z= +0.98
+trial 365: prob=0.496700  abs_bias=0.003300  z= -1.48
+trial 366: prob=0.500360  abs_bias=0.000360  z= +0.16
+trial 367: prob=0.501260  abs_bias=0.001260  z= +0.56
+trial 368: prob=0.496560  abs_bias=0.003440  z= -1.54
+trial 369: prob=0.501160  abs_bias=0.001160  z= +0.52
+trial 370: prob=0.497200  abs_bias=0.002800  z= -1.25
+trial 371: prob=0.495780  abs_bias=0.004220  z= -1.89
+trial 372: prob=0.501200  abs_bias=0.001200  z= +0.54
+trial 373: prob=0.498840  abs_bias=0.001160  z= -0.52
+trial 374: prob=0.503480  abs_bias=0.003480  z= +1.56
+trial 375: prob=0.498000  abs_bias=0.002000  z= -0.89
+trial 376: prob=0.499520  abs_bias=0.000480  z= -0.21
+trial 377: prob=0.499680  abs_bias=0.000320  z= -0.14
+trial 378: prob=0.496700  abs_bias=0.003300  z= -1.48
+trial 379: prob=0.503000  abs_bias=0.003000  z= +1.34
+trial 380: prob=0.498040  abs_bias=0.001960  z= -0.88
+trial 381: prob=0.502920  abs_bias=0.002920  z= +1.31
+trial 382: prob=0.500300  abs_bias=0.000300  z= +0.13
+trial 383: prob=0.503880  abs_bias=0.003880  z= +1.74
+trial 384: prob=0.502440  abs_bias=0.002440  z= +1.09
+trial 385: prob=0.501180  abs_bias=0.001180  z= +0.53
+trial 386: prob=0.499180  abs_bias=0.000820  z= -0.37
+trial 387: prob=0.501480  abs_bias=0.001480  z= +0.66
+trial 388: prob=0.499300  abs_bias=0.000700  z= -0.31
+trial 389: prob=0.499840  abs_bias=0.000160  z= -0.07
+trial 390: prob=0.498760  abs_bias=0.001240  z= -0.55
+trial 391: prob=0.499100  abs_bias=0.000900  z= -0.40
+trial 392: prob=0.503500  abs_bias=0.003500  z= +1.57
+trial 393: prob=0.500540  abs_bias=0.000540  z= +0.24
+trial 394: prob=0.497040  abs_bias=0.002960  z= -1.32
+trial 395: prob=0.499340  abs_bias=0.000660  z= -0.30
+trial 396: prob=0.498700  abs_bias=0.001300  z= -0.58
+trial 397: prob=0.497560  abs_bias=0.002440  z= -1.09
+trial 398: prob=0.495880  abs_bias=0.004120  z= -1.84
+trial 399: prob=0.502000  abs_bias=0.002000  z= +0.89
+trial 400: prob=0.502660  abs_bias=0.002660  z= +1.19
+  -- 400/500 trials · exceedance 14/400 = 3.5% · max |bias| 0.007040 --
+trial 401: prob=0.502580  abs_bias=0.002580  z= +1.15
+trial 402: prob=0.500720  abs_bias=0.000720  z= +0.32
+trial 403: prob=0.498520  abs_bias=0.001480  z= -0.66
+trial 404: prob=0.500940  abs_bias=0.000940  z= +0.42
+trial 405: prob=0.501520  abs_bias=0.001520  z= +0.68
+trial 406: prob=0.501820  abs_bias=0.001820  z= +0.81
+trial 407: prob=0.497300  abs_bias=0.002700  z= -1.21
+trial 408: prob=0.496920  abs_bias=0.003080  z= -1.38
+trial 409: prob=0.501980  abs_bias=0.001980  z= +0.89
+trial 410: prob=0.499060  abs_bias=0.000940  z= -0.42
+trial 411: prob=0.502220  abs_bias=0.002220  z= +0.99
+trial 412: prob=0.499360  abs_bias=0.000640  z= -0.29
+trial 413: prob=0.500180  abs_bias=0.000180  z= +0.08
+trial 414: prob=0.501660  abs_bias=0.001660  z= +0.74
+trial 415: prob=0.498380  abs_bias=0.001620  z= -0.72
+trial 416: prob=0.501360  abs_bias=0.001360  z= +0.61
+trial 417: prob=0.500160  abs_bias=0.000160  z= +0.07
+trial 418: prob=0.498920  abs_bias=0.001080  z= -0.48
+trial 419: prob=0.500860  abs_bias=0.000860  z= +0.38
+trial 420: prob=0.498520  abs_bias=0.001480  z= -0.66
+trial 421: prob=0.498360  abs_bias=0.001640  z= -0.73
+trial 422: prob=0.496020  abs_bias=0.003980  z= -1.78
+trial 423: prob=0.495280  abs_bias=0.004720  z= -2.11  *** EXCEEDS THRESHOLD ***
+trial 424: prob=0.499580  abs_bias=0.000420  z= -0.19
+trial 425: prob=0.499300  abs_bias=0.000700  z= -0.31
+trial 426: prob=0.501200  abs_bias=0.001200  z= +0.54
+trial 427: prob=0.498560  abs_bias=0.001440  z= -0.64
+trial 428: prob=0.496500  abs_bias=0.003500  z= -1.57
+trial 429: prob=0.500920  abs_bias=0.000920  z= +0.41
+trial 430: prob=0.502380  abs_bias=0.002380  z= +1.06
+trial 431: prob=0.495720  abs_bias=0.004280  z= -1.91
+trial 432: prob=0.500940  abs_bias=0.000940  z= +0.42
+trial 433: prob=0.497920  abs_bias=0.002080  z= -0.93
+trial 434: prob=0.498980  abs_bias=0.001020  z= -0.46
+trial 435: prob=0.497900  abs_bias=0.002100  z= -0.94
+trial 436: prob=0.499800  abs_bias=0.000200  z= -0.09
+trial 437: prob=0.501820  abs_bias=0.001820  z= +0.81
+trial 438: prob=0.499860  abs_bias=0.000140  z= -0.06
+trial 439: prob=0.498320  abs_bias=0.001680  z= -0.75
+trial 440: prob=0.498620  abs_bias=0.001380  z= -0.62
+trial 441: prob=0.499140  abs_bias=0.000860  z= -0.38
+trial 442: prob=0.501540  abs_bias=0.001540  z= +0.69
+trial 443: prob=0.499460  abs_bias=0.000540  z= -0.24
+trial 444: prob=0.502500  abs_bias=0.002500  z= +1.12
+trial 445: prob=0.499240  abs_bias=0.000760  z= -0.34
+trial 446: prob=0.497920  abs_bias=0.002080  z= -0.93
+trial 447: prob=0.502380  abs_bias=0.002380  z= +1.06
+trial 448: prob=0.501600  abs_bias=0.001600  z= +0.72
+trial 449: prob=0.499440  abs_bias=0.000560  z= -0.25
+trial 450: prob=0.499860  abs_bias=0.000140  z= -0.06
+  -- 450/500 trials · exceedance 15/450 = 3.3% · max |bias| 0.007040 --
+trial 451: prob=0.498940  abs_bias=0.001060  z= -0.47
+trial 452: prob=0.503220  abs_bias=0.003220  z= +1.44
+trial 453: prob=0.500460  abs_bias=0.000460  z= +0.21
+trial 454: prob=0.499720  abs_bias=0.000280  z= -0.13
+trial 455: prob=0.496200  abs_bias=0.003800  z= -1.70
+trial 456: prob=0.496980  abs_bias=0.003020  z= -1.35
+trial 457: prob=0.497700  abs_bias=0.002300  z= -1.03
+trial 458: prob=0.498240  abs_bias=0.001760  z= -0.79
+trial 459: prob=0.494660  abs_bias=0.005340  z= -2.39  *** EXCEEDS THRESHOLD ***
+trial 460: prob=0.499800  abs_bias=0.000200  z= -0.09
+trial 461: prob=0.500540  abs_bias=0.000540  z= +0.24
+trial 462: prob=0.503100  abs_bias=0.003100  z= +1.39
+trial 463: prob=0.497480  abs_bias=0.002520  z= -1.13
+trial 464: prob=0.502720  abs_bias=0.002720  z= +1.22
+trial 465: prob=0.500600  abs_bias=0.000600  z= +0.27
+trial 466: prob=0.498000  abs_bias=0.002000  z= -0.89
+trial 467: prob=0.503440  abs_bias=0.003440  z= +1.54
+trial 468: prob=0.499660  abs_bias=0.000340  z= -0.15
+trial 469: prob=0.504420  abs_bias=0.004420  z= +1.98
+trial 470: prob=0.492820  abs_bias=0.007180  z= -3.21  *** EXCEEDS THRESHOLD ***
+trial 471: prob=0.500400  abs_bias=0.000400  z= +0.18
+trial 472: prob=0.501180  abs_bias=0.001180  z= +0.53
+trial 473: prob=0.499280  abs_bias=0.000720  z= -0.32
+trial 474: prob=0.500280  abs_bias=0.000280  z= +0.13
+trial 475: prob=0.499580  abs_bias=0.000420  z= -0.19
+trial 476: prob=0.502040  abs_bias=0.002040  z= +0.91
+trial 477: prob=0.500900  abs_bias=0.000900  z= +0.40
+trial 478: prob=0.499240  abs_bias=0.000760  z= -0.34
+trial 479: prob=0.500840  abs_bias=0.000840  z= +0.38
+trial 480: prob=0.499820  abs_bias=0.000180  z= -0.08
+trial 481: prob=0.496320  abs_bias=0.003680  z= -1.65
+trial 482: prob=0.502820  abs_bias=0.002820  z= +1.26
+trial 483: prob=0.494720  abs_bias=0.005280  z= -2.36  *** EXCEEDS THRESHOLD ***
+trial 484: prob=0.502400  abs_bias=0.002400  z= +1.07
+trial 485: prob=0.496860  abs_bias=0.003140  z= -1.40
+trial 486: prob=0.500820  abs_bias=0.000820  z= +0.37
+trial 487: prob=0.501700  abs_bias=0.001700  z= +0.76
+trial 488: prob=0.499820  abs_bias=0.000180  z= -0.08
+trial 489: prob=0.497900  abs_bias=0.002100  z= -0.94
+trial 490: prob=0.499760  abs_bias=0.000240  z= -0.11
+trial 491: prob=0.497700  abs_bias=0.002300  z= -1.03
+trial 492: prob=0.501340  abs_bias=0.001340  z= +0.60
+trial 493: prob=0.503020  abs_bias=0.003020  z= +1.35
+trial 494: prob=0.502480  abs_bias=0.002480  z= +1.11
+trial 495: prob=0.497060  abs_bias=0.002940  z= -1.31
+trial 496: prob=0.495380  abs_bias=0.004620  z= -2.07  *** EXCEEDS THRESHOLD ***
+trial 497: prob=0.501640  abs_bias=0.001640  z= +0.73
+trial 498: prob=0.497000  abs_bias=0.003000  z= -1.34
+trial 499: prob=0.499480  abs_bias=0.000520  z= -0.23
+trial 500: prob=0.499120  abs_bias=0.000880  z= -0.39
+  -- 500/500 trials · exceedance 19/500 = 3.8% · max |bias| 0.007180 --
+
+========================================================================
+SESSION SUMMARY
+========================================================================
+Trials exceeding threshold : 19/500 = 3.80%   (null expectation ~4.55%)
+Mean |bias|                : 0.001845
+Max  |bias|                : 0.007180   (threshold 0.00447)
+Max  |z|                   : 3.21
+Best observed pair         : prob=0.492820  z=-3.21
+  in_mask  = 33c4260acda4caaf82bba4f38a56e3dd
+  out_mask = cb823de96f70450bf5788f207c9febb5
+Elapsed                    : 205.5 s
