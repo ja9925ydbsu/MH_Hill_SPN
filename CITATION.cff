@@ -1,22 +1,46 @@
 cff-version: "1.2.0"
-message: "If you use this repository, please cite the associated MD-Hill-SPN paper."
-type: software
+message: "If you use this software, please cite the associated paper and this repository."
 title: "MD-Hill-SPN Research Code"
-version: "1.0.0"
-date-released: "2026-07-07"
-repository-code: "https://github.com/ja9925ydbsu/MH_Hill_SPN"
-license: "MIT"
+type: software
 
 authors:
   - family-names: "Coggins"
     given-names: "Porter E."
+    name-suffix: "III"
+    affiliation: "Bemidji State University"
+
+version: "4"
+date-released: "2026-07-07"
+repository-code: "https://github.com/ja9925ydbsu/MH_Hill_SPN"
+license: "MIT"
+
+abstract: >-
+  Python research code for MD-Hill-SPN, a 128-bit, 12-round
+  substitution-permutation network research construction based on Hill Cipher
+  Variation 2 adapted to byte/bit-level operations, with layered Cauchy MDS
+  diffusion over GF(2^8) and AES S-box substitution layers. Includes the
+  reference and vectorized implementations, the metric suite, NIST SP 800-22
+  core-battery keystream evaluation, round-count diagnostics, and reference
+  test-vector generation supporting the associated paper.
+
+keywords:
+  - cryptography
+  - Hill cipher
+  - SPN
+  - substitution-permutation network
+  - MDS matrix
+  - Cauchy matrix
+  - branch number
+  - Argon2id
+  - MD-Hill-SPN
 
 preferred-citation:
   type: article
+  title: "Multidimensional Hill Cipher Substitution-Permutation Network"
   authors:
     - family-names: "Coggins"
       given-names: "Porter E."
-  title: "Multidimensional Hill Cipher Substitution-Permutation Network"
+      name-suffix: "III"
   journal: "Journal of Cybersecurity and Privacy"
   year: 2026
   volume: 6
