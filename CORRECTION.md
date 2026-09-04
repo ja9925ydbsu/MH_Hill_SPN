@@ -51,7 +51,7 @@ B(M) = n + 1.
 
 Therefore the intended values remain `B(M4) = 5`, `B(M8) = 9`, and `B(M16) = 17`. Weight-one enumeration is an **implementation consistency check** of those theorem-derived values, not an independent exhaustive proof of the branch number.
 
-Any legacy wording in repository scripts or archived logs that describes the branch number as “exact via weight-1 enumeration” is superseded by this notice.
+The active `mdhillspn_core.py` and `mdhillspn_metrics_optimized_rev4.py` files were terminology-aligned with this correction on 4 September 2026. Historical April 20 Revision 3 scripts and archived logs are intentionally preserved unchanged for provenance; any legacy wording in those historical artifacts that describes the branch number as “exact via weight-1 enumeration” is superseded by this notice.
 
 ## 4. Effect on the published results
 
