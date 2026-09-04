@@ -50,8 +50,9 @@ Provides, in one importable module:
      and Argon2id (production; requires argon2-cffi), plus the
      rk[r] = SHA256(K || 'MDHILLRK' || pack('>H', r))[:16] schedule.
 
-  4. Cauchy MDS matrix derivation with fail-closed exact branch-number
-     verification (B = n + 1 at every tier).
+  4. Pairwise-distinct, index-separated Cauchy MDS matrix derivation.
+     The Cauchy MDS property gives B = n + 1 at every tier; weight-one
+     enumeration is used only as an implementation consistency check.
 
   5. Counter-mode keystream generation (vectorized) for NIST testing.
 
@@ -72,8 +73,8 @@ Canonical encodings (normative, identical to the Revision 3 scripts):
   master key : (SHA256(pwd || salt) || SHA256(pwd || salt || 0x01))[:32]
                (stub; production Argon2id t=3, m=65536 KiB, p=2, l=32)
   round keys : rk[r] = SHA256(K || b'MDHILLRK' || pack('>H', r))[:16]
-  matrices   : Cauchy MDS over GF(2^8)/0x11B; X, Y disjoint nonzero
-               subsets drawn from iterated
+  matrices   : Cauchy MDS over GF(2^8)/0x11B; 2n pairwise-distinct
+               nonzero parameters drawn from iterated
                SHA256(K || tag || pack('>H', index) || pack('>I', ctr)),
                tags b'MDHILL_4' (i=0..3), b'MDHILL_8' (i=0..1),
                b'MDHILL_16' (i=0); M[i][j] = inv(X[i] ^ Y[j])
@@ -250,15 +251,18 @@ SBOX_NP     = np.array(SBOX,     dtype=np.uint8)
 SBOX_INV_NP = np.array(SBOX_INV, dtype=np.uint8)
 
 # ---------------------------------------------------------------------------
-# Branch number (exact via weight-1 enumeration; exact for MDS matrices)
+# Weight-one branch-number consistency check
 # ---------------------------------------------------------------------------
 
 def branch_number_weight1(matrix) -> int:
     """
-    B(M) = min over nonzero x of [hw(x) + hw(Mx)], hw = nonzero-byte count.
-    For weight-1 input e_i, the pair is (1, column-i Hamming weight), and for
-    MDS matrices (all columns full weight) the weight-1 minimum equals the
-    true branch number n + 1.
+    Return the minimum hw(x) + hw(Mx) over weight-one inputs only.
+
+    This is a column-support consistency check. For an arbitrary matrix,
+    weight-one enumeration does not establish the true branch number or
+    nonsingularity. In this module the independently established Cauchy MDS
+    property gives B(M) = n + 1; this function checks that the implementation
+    returns the expected weight-one value n + 1.
     """
     n = len(matrix)
     best = n + 2
@@ -333,11 +337,13 @@ def _cauchy_matrix_gf28(master_key: bytes, tag: bytes,
 
     M = [[gf_inv(X[i] ^ Y[j]) for j in range(n)] for i in range(n)]
 
-    bn = branch_number_weight1(M)
-    if bn != n + 1:
+    # Cauchy MDS status follows from the pairwise-distinct parameters above.
+    # This computation is only an implementation consistency check.
+    bn_w1 = branch_number_weight1(M)
+    if bn_w1 != n + 1:
         raise RuntimeError(
-            f"Cauchy construction produced non-MDS matrix "
-            f"(size={n}, B={bn}, expected {n+1}).")
+            f"Cauchy implementation consistency check failed "
+            f"(size={n}, weight-one value={bn_w1}, expected {n+1}).")
     return M
 
 
@@ -577,9 +583,10 @@ def conformance_check(verbose: bool = True,
         raise RuntimeError("Conformance FAIL: rk[0] mismatch")
     _say("  [ok] master key, rk[0]")
 
-    # 2. Branch numbers
-    mat4, mat8, mat16 = derive_matrices(mk)  # raises fail-closed if non-MDS
-    _say("  [ok] Cauchy matrices MDS at every tier (B = 5 / 9 / 17)")
+    # 2. Cauchy MDS construction and weight-one consistency checks
+    mat4, mat8, mat16 = derive_matrices(mk)
+    _say("  [ok] pairwise-distinct Cauchy matrices are MDS; "
+         "weight-one checks = 5 / 9 / 17")
 
     # 3. Round-0 intermediate states
     rk0 = list(TV_RK0)
