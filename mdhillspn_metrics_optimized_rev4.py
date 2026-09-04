@@ -25,7 +25,9 @@ cipher or to any metric definition):
   3. Full console output is duplicated to a timestamped log file, so
      the interactive pause gates are now opt-in (--pause).
   4. Same five metric steps, same parameters, same statistics:
-       Step 0: Branch-number verification (EXACT, weight-1 enumeration)
+       Step 0: Branch-number consistency check (B = n + 1 follows from
+               the pairwise-distinct Cauchy MDS construction; weight-one
+               enumeration is an implementation consistency check)
        Step 1: Avalanche effect (plaintext + key)
        Step 2: Differential distribution (50,000 samples)
        Step 3: Linear-bias probe (500 mask pairs x 50,000 samples)
@@ -97,31 +99,32 @@ class Tee:
         self.f.close()
 
 # ============================================================
-# STEP 0: BRANCH NUMBER VERIFICATION (exact)
+# STEP 0: BRANCH NUMBER CONSISTENCY CHECK
 # ============================================================
 
 def branch_summary(mk, out):
     out("=" * 72)
-    out("STEP 0: BRANCH NUMBER VERIFICATION  (GF(2^8), EXACT via weight-1)")
-    out("  Cauchy construction guarantees MDS (B = n + 1) at every tier.")
+    out("STEP 0: BRANCH NUMBERS  (GF(2^8); B = n + 1 from Cauchy MDS)")
+    out("  Pairwise-distinct Cauchy parameters establish MDS at every tier.")
+    out("  Weight-one enumeration is an implementation consistency check only.")
     out("  hw counts nonzero bytes. Compare AES MixColumns B = 5 (MDS 4x4).")
     out("=" * 72)
     mat4, mat8, mat16 = core.derive_matrices(mk)
 
     out("\n4x4 matrices (4 matrices, group size = 4 bytes)  - MDS bound B = 5:")
     for i, M in enumerate(mat4):
-        bn = core.branch_number_weight1(M)
-        tag = "MDS" if bn == 5 else f"NON-MDS (B={bn})"
-        out(f"  M4[{i}]: B={bn}  [{tag}]")
+        bn_w1 = core.branch_number_weight1(M)
+        tag = "CONSISTENT" if bn_w1 == 5 else "CHECK FAIL"
+        out(f"  M4[{i}]: B=5 (Cauchy MDS); weight-one check={bn_w1}  [{tag}]")
     out("\n8x8 matrices (2 matrices, group size = 8 bytes)  - MDS bound B = 9:")
     for i, M in enumerate(mat8):
-        bn = core.branch_number_weight1(M)
-        tag = "MDS" if bn == 9 else f"NON-MDS (B={bn})"
-        out(f"  M8[{i}]: B={bn}  [{tag}]")
+        bn_w1 = core.branch_number_weight1(M)
+        tag = "CONSISTENT" if bn_w1 == 9 else "CHECK FAIL"
+        out(f"  M8[{i}]: B=9 (Cauchy MDS); weight-one check={bn_w1}  [{tag}]")
     out("\n16x16 matrix (1 matrix, full block = 16 bytes)  - MDS bound B = 17:")
-    bn = core.branch_number_weight1(mat16)
-    tag = "MDS" if bn == 17 else f"NON-MDS (B={bn})"
-    out(f"  M16[0]: B={bn}  [{tag}]")
+    bn_w1 = core.branch_number_weight1(mat16)
+    tag = "CONSISTENT" if bn_w1 == 17 else "CHECK FAIL"
+    out(f"  M16[0]: B=17 (Cauchy MDS); weight-one check={bn_w1}  [{tag}]")
     out("")
 
 # ============================================================
